@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:padding="20dp"
+    tools:context=".Register">
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/raleway"
+        android:text="@string/name"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/t1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/raleway"
+        android:text="@string/register_txt"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_below="@+id/t2"
+        >
+        <EditText
+            android:id="@+id/EditTextRegisterNickname"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/outlined_box_grey"
+            android:padding="10dp"
+            android:hint="Nickname"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+        />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+        />
+        <EditText
+            android:id="@+id/EditTextRegisterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/outlined_box_grey"
+            android:padding="10dp"
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/poppins"
+        />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            />
+        <EditText
+            android:id="@+id/EditTextRegisterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/outlined_box_grey"
+            android:padding="10dp"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppins"/>
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/l1" />
+
+    <Button
+        android:id="@+id/RegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/space3"
+        android:fontFamily="@font/poppins"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RegisterButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/redirect_reg"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/redirect_reg2"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
