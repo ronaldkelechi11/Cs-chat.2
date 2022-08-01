@@ -1,123 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    android:scrollbars="vertical"
     android:padding="20dp"
+    android:scrollbars="vertical"
+    app:layoutDescription="@xml/activity_register_scene"
     tools:context=".Register">
 
     <TextView
         android:id="@+id/t1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/raleway"
         android:text="@string/name"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/t2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/t1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:fontFamily="@font/raleway"
-        android:text="@string/register_txt"
+        android:text="@string/login_txt"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t1" />
+
     <LinearLayout
         android:id="@+id/l1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
         android:layout_below="@+id/t2"
-        >
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t2">
+
         <EditText
             android:id="@+id/EditTextRegisterNickname"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/outlined_box_grey"
-            android:padding="10dp"
-            android:hint="Nickname"
-            android:inputType="text"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:fontFamily="@font/poppins"
-        />
+            android:hint="Nickname"
+            android:inputType="textEmailAddress"
+            android:maxLength="20"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-        />
+            android:layout_height="20dp" />
+
         <EditText
             android:id="@+id/EditTextRegisterEmail"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/outlined_box_grey"
-            android:padding="10dp"
-            android:hint="Email"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
             android:fontFamily="@font/poppins"
-        />
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLength="20"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            />
+            android:layout_height="20dp" />
+
         <EditText
             android:id="@+id/EditTextRegisterPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/outlined_box_grey"
-            android:padding="10dp"
+            android:fontFamily="@font/poppins"
             android:hint="Password"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
+            android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:fontFamily="@font/poppins"/>
+            android:maxLength="20"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
     </LinearLayout>
-
-    <Space
-        android:id="@+id/space3"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@+id/l1" />
 
     <Button
         android:id="@+id/RegisterButton"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/space3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins"
         android:text="Register"
         android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/toRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/RegisterButton"
+        android:layout_below="@id/LoginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginButton">
 
         <TextView
             android:id="@+id/textView4"
@@ -149,4 +168,16 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBarRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/blue"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
