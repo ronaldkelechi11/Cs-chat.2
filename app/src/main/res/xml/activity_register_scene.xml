@@ -34,5 +34,26 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@id/toRegister"
+            motion:layout_constraintTop_toBottomOf="@+id/l1"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:id="@+id/RegisterButton"
+            android:layout_marginBottom="8dp" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp"
+            motion:layout_constraintTop_toBottomOf="@+id/LoginButton"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
+            android:id="@+id/toLogin"
+            motion:layout_constraintVertical_bias="0.68" />
     </ConstraintSet>
 </MotionScene>

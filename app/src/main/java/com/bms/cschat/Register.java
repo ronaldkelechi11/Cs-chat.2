@@ -1,5 +1,6 @@
 package com.bms.cschat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -10,14 +11,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
     ConstraintLayout toLogin;
     EditText nickname,email,password;
     Button registerButton;
     ProgressBar progressBar;
+    FirebaseAuth  mAuth;
 
 
     @Override
@@ -85,7 +91,6 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                Toast.makeText(getApplicationContext(),"Button click",Toast.LENGTH_SHORT).show();
 
 
 

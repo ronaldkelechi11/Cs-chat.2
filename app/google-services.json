@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "939960484258",
+    "firebase_url": "https://cs-chat-104dd-default-rtdb.firebaseio.com",
+    "project_id": "cs-chat-104dd",
+    "storage_bucket": "cs-chat-104dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939960484258:android:f0a63b88da568e1e7672fb",
+        "android_client_info": {
+          "package_name": "com.bms.cschat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939960484258-7gd2gr4racclvbt78idqdfc9e4baob80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATgWgtXYsYtBAbE1ix7XTTtNvYRFWG2mM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939960484258-7gd2gr4racclvbt78idqdfc9e4baob80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

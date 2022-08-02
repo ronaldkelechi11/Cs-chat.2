@@ -7,7 +7,6 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="20dp"
-    android:scrollbars="vertical"
     app:layoutDescription="@xml/activity_register_scene"
     tools:context=".Register">
 
@@ -84,7 +83,7 @@
             android:fontFamily="@font/poppins"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:maxLength="20"
+            android:maxLength="30"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="@color/black"
@@ -115,12 +114,12 @@
         android:id="@+id/RegisterButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/poppins"
         android:text="Register"
         android:textAllCaps="false"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/toRegister"
+        app:layout_constraintBottom_toTopOf="@id/toLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l1" />
@@ -129,14 +128,14 @@
         android:id="@+id/toLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/LoginButton"
+        android:layout_below="@id/RegisterButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton">
+        app:layout_constraintTop_toBottomOf="@+id/RegisterButton">
 
         <TextView
             android:id="@+id/textView4"
