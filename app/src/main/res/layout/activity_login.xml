@@ -16,7 +16,7 @@
         android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:fontFamily="@font/raleway"
+        android:fontFamily="@font/poppins"
         android:text="@string/name"
         android:textAlignment="center"
         android:textColor="@color/blue"
@@ -33,7 +33,7 @@
         android:layout_below="@+id/t1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:fontFamily="@font/raleway"
+        android:fontFamily="@font/poppins"
         android:text="@string/login_txt"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -80,9 +80,11 @@
             android:background="@drawable/outlined_box_grey"
             android:hint="Password"
             android:inputType="textPassword"
+            android:imeOptions="actionDone"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/poppins"/>
     </LinearLayout>
 
     <Button

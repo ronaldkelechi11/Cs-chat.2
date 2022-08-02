@@ -7,7 +7,8 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000"
-        motion:autoTransition="animateToEnd">
+        motion:autoTransition="animateToEnd"
+        motion:motionInterpolator="bounce">
        <KeyFrameSet></KeyFrameSet>
         <OnSwipe />
     </Transition>
