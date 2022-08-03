@@ -2,12 +2,12 @@
     <string name="app_name">cschat</string>
     <string name="name">CS Chat</string>
 
-<!--    Register Screen Strings-->
+    <!--    Register Screen Strings-->
     <string name="register_txt">Register and become stress<br></br> and hassle-free</string>
     <string name="redirect_reg">Already have an account?</string>
     <string name="redirect_reg2">Login Here</string>
 
-<!-- Login Screen Strings-->
+    <!-- Login Screen Strings-->
     <string name="login_txt">Welcome back, we missed you</string>
     <string name="redirect_log">Don\'t have an account?</string>
     <string name="redirect_log2">Register Here</string>
