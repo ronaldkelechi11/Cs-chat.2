@@ -71,11 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="80dp">
-
-        </TableRow>
 
     </TableLayout>
 
