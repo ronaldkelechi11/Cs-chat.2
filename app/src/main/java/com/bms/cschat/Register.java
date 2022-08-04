@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -26,6 +27,7 @@ public class Register extends AppCompatActivity {
     FirebaseAuth  mAuth;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,9 @@ public class Register extends AppCompatActivity {
         nickname = findViewById(R.id.EditTextRegisterNickname);
         email = findViewById(R.id.EditTextRegisterEmail);
         password = findViewById(R.id.EditTextRegisterPassword);
+
+        //Firebase
+        mAuth = FirebaseAuth.getInstance();
 
         // Button Functionality for To login click
         toLogin.setOnClickListener(new View.OnClickListener() {
