@@ -85,6 +85,8 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
+            android:singleLine="true"
+            android:maxLength="20"
             android:fontFamily="@font/poppins"/>
     </LinearLayout>
 
