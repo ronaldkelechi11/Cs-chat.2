@@ -10,7 +10,7 @@
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:padding="10dp"
+        android:padding="5dp"
         app:cardBackgroundColor="@color/blue"
         app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
+            android:id="@+id/browser_search"
             android:layout_width="345dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -27,11 +28,16 @@
             android:hint="Search..."
             android:imeOptions="actionGo"
             android:inputType="textUri"
-            android:paddingLeft="10dp"
             android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:paddingTop="1dp"
+            android:drawableStart="@drawable/search"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:selectAllOnFocus="true"
+            />
     </androidx.cardview.widget.CardView>
 
 <!--WebView Homepage is custom Page by We-Hub -->
@@ -47,7 +53,7 @@
 
 <!--ProgressBar by default is hidden-->
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarWebView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -61,6 +67,7 @@
 
 <!--Lower Nav bar for the Browser Page-->
     <androidx.cardview.widget.CardView
+        android:visibility="gone"
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
