@@ -38,6 +38,7 @@ public class Browser extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
+        webSettings.setSaveFormData(true);
 
         webView.setWebViewClient(new MyWebViewClient());
         //Set the default Homepage here
