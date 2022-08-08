@@ -42,7 +42,8 @@ public class Browser extends AppCompatActivity {
 
         webView.setWebViewClient(new MyWebViewClient());
         //Set the default Homepage here
-        //webView.loadUrl("www. .com");
+        //Default Homepage is a site hosted with GitHub
+        webView.loadUrl("https://ronaldkelechi11.github.io/CS-chat-Browser-Homepage/");
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

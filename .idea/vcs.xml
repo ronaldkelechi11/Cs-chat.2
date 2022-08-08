@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/CS Chat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CS-chat-Browser-Homepage" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ZapCalc" vcs="Git" />
   </component>
 </project>

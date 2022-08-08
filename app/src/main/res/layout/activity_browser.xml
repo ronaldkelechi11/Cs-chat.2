@@ -20,9 +20,10 @@
 
         <EditText
             android:id="@+id/browser_search"
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/box_grey"
             android:fontFamily="@font/poppins"
             android:hint="Search..."
@@ -33,7 +34,7 @@
             android:textColorHint="@color/grey"
             android:textSize="18sp"
             android:paddingTop="1dp"
-            android:drawableStart="@drawable/search"
+            android:drawableStart="@drawable/google_img"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:selectAllOnFocus="true"
