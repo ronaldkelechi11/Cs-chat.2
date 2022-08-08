@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:contentPadding="10dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="10dp">
+    android:background="@drawable/outlined_box_black"
+    android:padding="10dp"
+    >
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My First Note"
         android:textSize="32sp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:fontFamily="@font/poppins"
-        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
     />
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

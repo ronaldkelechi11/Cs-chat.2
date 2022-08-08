@@ -9,49 +9,34 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
+public class HomeScreen extends AppCompatActivity{
+    LinearLayout browserButton;
+    LinearLayout notesButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-//  Code here is to get snapshot from the database
+
+        browserButton = findViewById(R.id.browserButton);
+        notesButton = findViewById(R.id.notesButton);
+
+
+        notesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent n = new Intent(getApplicationContext(),Notes.class);
+                startActivity(n);
+            }
+        });
+        browserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent b = new Intent(getApplicationContext(),Browser.class);
+                startActivity(b);
+            }
+        });
+
 
 
     }
-
-//    I used switch case to get click on a massive scale instead of initializing all and
-//    having a massive code base
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.boardButton:
-                Toast.makeText(getApplicationContext(), "Board is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.timetableButton:
-                Toast.makeText(getApplicationContext(), "Timetable is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.notesButton:
-                Toast.makeText(getApplicationContext(), "Notes is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.tradeButton:
-                Toast.makeText(getApplicationContext(), "Trade is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.ebookButton:
-                Toast.makeText(getApplicationContext(), "E-books is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.browserButton:
-                Intent i = new Intent(getApplicationContext(),Browser.class);
-                startActivity(i);
-                break;
-            case R.id.reminderButton:
-                Toast.makeText(getApplicationContext(), "Reminders is Locked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.moreButton:
-                Toast.makeText(getApplicationContext(), "Coming Soon", Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
-
-
-
 }
