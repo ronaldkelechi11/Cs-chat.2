@@ -1,7 +1,9 @@
 package com.bms.cschat;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,6 +20,8 @@ public class NewNote extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-
+        Intent c = new Intent(getApplicationContext(),Notes.class);
+        startActivity(c);
+        finish();
     }
 }

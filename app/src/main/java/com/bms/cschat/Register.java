@@ -125,7 +125,6 @@ public class Register extends AppCompatActivity {
                                 //Saving of Shared Preference Value
                                 myPref = getSharedPreferences(SHARED_PREFERNCE_NAME,MODE_PRIVATE);
                                 myPrefeditor = myPref.edit();
-
                                 // Value of shared Preference is true
                                 myPrefeditor.putString(KEY,"true");
                                 myPrefeditor.apply();
@@ -133,6 +132,7 @@ public class Register extends AppCompatActivity {
 
                                 Intent i = new Intent(getApplicationContext(),HomeScreen.class);
                                 startActivity(i);
+                                finish();
                             }
                             else {
                                 Toast.makeText(getApplicationContext(),"Registration Unsuccessful",Toast.LENGTH_SHORT).show();
