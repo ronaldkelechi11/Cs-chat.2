@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp"
+    tools:context=".NewNote">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/outlined_box_blue"
+        android:fontFamily="@font/poppins"
+        android:gravity="center_vertical"
+        android:hint="Title..."
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:textStyle="bold"
+        android:maxLength="25"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/outlined_box_blue"
+        android:fontFamily="@font/poppins"
+        android:gravity="top"
+        android:hint="Write..."
+        android:imeOptions="actionDone"
+        android:lineHeight="2dp"
+        android:padding="10dp"
+        android:singleLine="false"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:onClick="cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/blue"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                />
+        </androidx.cardview.widget.CardView>
+        <Space
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            />
+        <androidx.cardview.widget.CardView
+            android:onClick="saveNote"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/blue"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </TableRow>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

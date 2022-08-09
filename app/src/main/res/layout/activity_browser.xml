@@ -32,10 +32,10 @@
             android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:paddingTop="1dp"
             android:drawableStart="@drawable/google_img"
-            android:gravity="center"
+            android:drawablePadding="10dp"
             android:paddingLeft="10dp"
             android:selectAllOnFocus="true"
             />

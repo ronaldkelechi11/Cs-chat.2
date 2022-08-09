@@ -43,7 +43,7 @@ public class Browser extends AppCompatActivity {
         webView.setWebViewClient(new MyWebViewClient());
         //Set the default Homepage here
         //Default Homepage is a site hosted with GitHub
-        webView.loadUrl("https://ronaldkelechi11.github.io/CS-chat-Browser-Homepage/");
+        webView.loadUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -51,7 +51,7 @@ public class Browser extends AppCompatActivity {
                 if(i == EditorInfo.IME_ACTION_GO || i == EditorInfo.IME_ACTION_DONE){
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
-                    loadUrl(browserSearch.getText().toString());
+                    webView.loadUrl(browserSearch.getText().toString());
                 }
                 else {
 
@@ -83,7 +83,7 @@ public class Browser extends AppCompatActivity {
           webView.loadUrl(url);
         }
         else{
-           webView.loadUrl("google.com/search?q"+url);
+           webView.loadUrl("google.com/search?q="+url);
         }
     }
 
@@ -108,7 +108,4 @@ public class Browser extends AppCompatActivity {
             progressBar.setVisibility(View.INVISIBLE);
         }
     }
-
-
-
 }
