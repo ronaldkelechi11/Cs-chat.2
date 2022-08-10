@@ -95,6 +95,7 @@
                     android:src="@drawable/board" />
 
                 <TextView
+                    android:id="@+id/boardText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -121,6 +122,7 @@
                     android:src="@drawable/timetable" />
 
                 <TextView
+                    android:id="@+id/timetabletext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -148,6 +150,7 @@
                     android:src="@drawable/notes" />
 
                 <TextView
+                    android:id="@+id/notesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -174,6 +177,7 @@
                     android:src="@drawable/cart" />
 
                 <TextView
+                    android:id="@+id/tradetext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -222,6 +226,7 @@
                     android:layout_gravity="center"
                     />
                 <TextView
+                    android:id="@+id/ebooktext"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -251,6 +256,7 @@
                     android:layout_gravity="center"
                     />
                 <TextView
+                    android:id="@+id/browsertext"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -280,6 +286,7 @@
                     android:layout_gravity="center"
                     />
                 <TextView
+                    android:id="@+id/remindertext"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -296,6 +303,7 @@
 
 
             <LinearLayout
+                android:onClick="moreButton"
                 android:id="@+id/moreButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

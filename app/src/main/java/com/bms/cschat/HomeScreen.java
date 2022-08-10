@@ -1,22 +1,23 @@
 package com.bms.cschat;
 
+import static com.bms.cschat.R.color.red;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class HomeScreen extends AppCompatActivity{
-    LinearLayout browserButton;
-    LinearLayout notesButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        browserButton = findViewById(R.id.browserButton);
-        notesButton = findViewById(R.id.notesButton);
     }
 
     //Click On Linear Layouts
@@ -26,7 +27,13 @@ public class HomeScreen extends AppCompatActivity{
     }
 
     public void goToNotes(View view) {
+        TextView t = (TextView) findViewById(R.id.notesText);
+        t.setTextColor(getResources().getColor(red));
         Intent n = new Intent(getApplicationContext(),Notes.class);
         startActivity(n);
+    }
+
+    public void moreButton(View view) {
+        Toast.makeText(getApplicationContext(), "Locked", Toast.LENGTH_SHORT).show();
     }
 }

@@ -9,7 +9,7 @@
     tools:context=".NewNote">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/noteTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/outlined_box_blue"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/noteDescriptionEdittext"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -47,58 +47,59 @@
         android:textColorHint="@color/grey"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tableRow"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleEditText" />
 
     <TableRow
         android:id="@+id/tableRow"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteDescriptionEdittext">
 
         <androidx.cardview.widget.CardView
-            android:onClick="cancel"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:onClick="cancel"
             app:cardBackgroundColor="@color/blue"
-            >
+            app:cardCornerRadius="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
                 android:text="Cancel"
                 android:textColor="@color/white"
-                android:fontFamily="@font/poppins"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                />
+                android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
+
         <Space
             android:layout_width="0dp"
-            android:layout_weight="0.5"
-            />
+            android:layout_weight="0.5" />
+
         <androidx.cardview.widget.CardView
-            android:onClick="saveNote"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:onClick="saveNote"
             app:cardBackgroundColor="@color/blue"
-            >
+            app:cardCornerRadius="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
                 android:text="Save"
                 android:textColor="@color/white"
-                android:fontFamily="@font/poppins"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                />
+                android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
-
 
 
     </TableRow>
