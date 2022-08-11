@@ -3,6 +3,7 @@ package com.bms.cschat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 
 import com.bms.cschat.adapters.NoteAdapter;
 import com.bms.cschat.classes.Note;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 public class Notes extends AppCompatActivity {
     ListView noteListView;
@@ -26,15 +30,17 @@ public class Notes extends AppCompatActivity {
         NoteAdapter noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
+
+
         noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(),NewNote.class);
                 startActivity(intent);
+
                 TextView t = findViewById(R.id.noteTitle);
                 String savedTitle = t.getText().toString();
                 intent.putExtra("savedTitle",savedTitle);
-
             }
         });
 

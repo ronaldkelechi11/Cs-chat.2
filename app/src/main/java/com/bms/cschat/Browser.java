@@ -1,6 +1,7 @@
 package com.bms.cschat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,14 +18,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Browser extends AppCompatActivity {
+public class Browser extends AppCompatActivity implements View.OnClickListener{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
-
+    CardView browserHomepage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,8 @@ public class Browser extends AppCompatActivity {
         webView = findViewById(R.id.browserWebview);
         browserSearch = findViewById(R.id.browser_search);
         progressBar = findViewById(R.id.progressBarWebView);
+        browserHomepage = findViewById(R.id.browserHomeScreen);
+
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -40,11 +45,10 @@ public class Browser extends AppCompatActivity {
         webSettings.setDisplayZoomControls(false);
         webSettings.setSaveFormData(true);
 
+        webView.getUrl();
+
 
         webView.setWebViewClient(new MyWebViewClient());
-        //Set the default Homepage here
-        //Default Homepage is a site hosted with GitHub
-        webView.loadUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -54,9 +58,7 @@ public class Browser extends AppCompatActivity {
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
                     webView.loadUrl(browserSearch.getText().toString());
                 }
-                else {
 
-                }
                 return false;
             }
         });
@@ -88,7 +90,37 @@ public class Browser extends AppCompatActivity {
         }
     }
 
-
+    //Switch Case for Redirection
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.myschoolgist:
+                loadUrl("www.myschoolgist.com");
+                browserHomepage.setVisibility(View.INVISIBLE);
+                webView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.waecdirect:
+                loadUrl("www.waecdirect.com");
+                browserHomepage.setVisibility(View.INVISIBLE);
+                webView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.jumia:
+                loadUrl("www.jumia.com");
+                browserHomepage.setVisibility(View.INVISIBLE);
+                webView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.manirecruits:
+                loadUrl("www.manirecruits.com");
+                browserHomepage.setVisibility(View.INVISIBLE);
+                webView.setVisibility(View.VISIBLE);
+                break;
+            case R.id.coralexec:
+                loadUrl("www.coralexecutives.com");
+                browserHomepage.setVisibility(View.INVISIBLE);
+                webView.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
     // Web Client Service
     class MyWebViewClient extends WebViewClient {
 
@@ -107,6 +139,13 @@ public class Browser extends AppCompatActivity {
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             progressBar.setVisibility(View.INVISIBLE);
+            Toast.makeText(getApplicationContext(), "Page Loaded", Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    protected void onStart() {
+        browserHomepage.setVisibility(View.VISIBLE);
+        webView.setVisibility(View.INVISIBLE);
+        super.onStart();
     }
 }
