@@ -13,7 +13,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="130dp"
         app:cardBackgroundColor="?colorPrimary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +77,8 @@
 
         <!--        First Row-->
         <TableRow
+            android:paddingVertical="10dp"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -107,7 +107,6 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:id="@+id/timetableButton"
                 android:layout_width="wrap_content"
@@ -122,13 +121,13 @@
                     android:src="@drawable/timetable" />
 
                 <TextView
-                    android:id="@+id/timetabletext"
+                    android:id="@+id/timetableText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Timetable"
+                    android:text="TimeTable"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
@@ -210,7 +209,6 @@
         <!--        First Row-->
         <TableRow
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/ebookButton"
@@ -347,16 +345,15 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:divider="@color/blue"
+        android:dividerHeight="1dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:listitem="@layout/custom_news_item"
-        android:divider="@color/blue"
-        android:dividerHeight="2dp"
-        android:scrollbars="horizontal"
-        android:orientation="horizontal"
-        android:background="@android:color/transparent"
-        />
+        tools:listitem="@layout/custom_news_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

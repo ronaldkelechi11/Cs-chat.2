@@ -18,8 +18,6 @@ public class NewNote extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
 
-        title = findViewById(R.id.noteTitleEditText);
-        description = findViewById(R.id.noteDescriptionEdittext);
     }
 
     public void saveNote(View view) {
@@ -29,10 +27,18 @@ public class NewNote extends AppCompatActivity {
 
         Note newNote = new Note(id,titletxt,desctxt);
         Note.noteArrayList.add(newNote);
+        Intent i = new Intent(getApplicationContext(),Notes.class);
+        startActivity(i);
         finish();
     }
 
     public void cancel(View view) {
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 }

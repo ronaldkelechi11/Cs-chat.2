@@ -40,6 +40,7 @@ public class Browser extends AppCompatActivity {
         webSettings.setDisplayZoomControls(false);
         webSettings.setSaveFormData(true);
 
+
         webView.setWebViewClient(new MyWebViewClient());
         //Set the default Homepage here
         //Default Homepage is a site hosted with GitHub
