@@ -33,6 +33,10 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
 
+        //Just to make sure that the screen always start properly
+        browserHomepage.setVisibility(View.VISIBLE);
+        webView.setVisibility(View.INVISIBLE);
+
         webView = findViewById(R.id.browserWebview);
         browserSearch = findViewById(R.id.browser_search);
         progressBar = findViewById(R.id.progressBarWebView);
@@ -72,8 +76,7 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
             webView.goBack();
         }
         else{
-            Intent i = new Intent(getApplicationContext(),HomeScreen.class);
-            startActivity(i);
+            finish();
         }
         super.onBackPressed();
     }
@@ -121,6 +124,8 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
                 break;
         }
     }
+
+
     // Web Client Service
     class MyWebViewClient extends WebViewClient {
 
@@ -142,10 +147,5 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
             Toast.makeText(getApplicationContext(), "Page Loaded", Toast.LENGTH_SHORT).show();
         }
     }
-    @Override
-    protected void onStart() {
-        browserHomepage.setVisibility(View.VISIBLE);
-        webView.setVisibility(View.INVISIBLE);
-        super.onStart();
-    }
+
 }

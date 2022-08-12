@@ -95,8 +95,6 @@ public class Login extends AppCompatActivity{
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                String emailExist = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                                if(emailExist.equals(emailSt)){
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(getApplicationContext(),HomeScreen.class);
                                     startActivity(i);
@@ -104,16 +102,9 @@ public class Login extends AppCompatActivity{
                                 }
                                 else {
                                     progressBar.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), "Email Does not Exist in Database", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Bad Internet Connection", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                            else{
-                                progressBar.setVisibility(View.INVISIBLE);
-                                Toast.makeText(getApplicationContext(), "Bad Internet Connection", Toast.LENGTH_SHORT).show();
-                            }
-
-
-                        }
                     });
 
             }

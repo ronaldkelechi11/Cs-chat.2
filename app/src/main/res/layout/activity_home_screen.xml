@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:paddingTop="10dp"
+    android:isScrollContainer="true"
     android:paddingStart="10dp"
+    android:paddingTop="10dp"
     android:paddingEnd="10dp"
     tools:context=".HomeScreen">
 
@@ -77,9 +78,9 @@
 
         <!--        First Row-->
         <TableRow
-            android:paddingVertical="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp">
 
             <LinearLayout
                 android:id="@+id/boardButton"
@@ -191,9 +192,7 @@
     </TableLayout>
 
 
-
     <!--Second Row 😊-->
-
 
 
     <TableLayout
@@ -210,121 +209,113 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:id="@+id/ebookButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                >
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ebook"
                     android:layout_gravity="center"
-                    />
+                    android:src="@drawable/ebook" />
+
                 <TextView
                     android:id="@+id/ebooktext"
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="E-books"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="E-books"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
             </LinearLayout>
-
 
 
             <LinearLayout
                 android:id="@+id/browserButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
                 android:onClick="goToBrowser"
-                >
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/browser"
                     android:layout_gravity="center"
-                    />
+                    android:src="@drawable/browser" />
+
                 <TextView
                     android:id="@+id/browsertext"
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Browser"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Browser"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
             </LinearLayout>
-
-
 
 
             <LinearLayout
                 android:id="@+id/reminderButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                >
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/reminder"
                     android:layout_gravity="center"
-                    />
+                    android:src="@drawable/reminder" />
+
                 <TextView
                     android:id="@+id/remindertext"
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reminder"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Reminder"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
             </LinearLayout>
 
 
-
-
             <LinearLayout
-                android:onClick="moreButton"
                 android:id="@+id/moreButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                >
+                android:onClick="moreButton"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/more"
                     android:layout_gravity="center"
-                    />
+                    android:src="@drawable/more" />
+
                 <TextView
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="More"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="More"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
@@ -333,8 +324,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:fontFamily="@font/poppins"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins"
         android:text="News"
         android:textColor="@color/black"
         android:textSize="36sp"
@@ -351,6 +342,7 @@
         android:orientation="horizontal"
         android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:listitem="@layout/custom_news_item" />

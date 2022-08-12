@@ -36,7 +36,7 @@
             android:paddingTop="1dp"
             android:drawableStart="@drawable/google_img"
             android:drawablePadding="10dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:selectAllOnFocus="true"
             />
     </androidx.cardview.widget.CardView>

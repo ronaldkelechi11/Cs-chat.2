@@ -32,29 +32,10 @@ public class Notes extends AppCompatActivity {
 
 
 
-        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(),NewNote.class);
-                startActivity(intent);
-
-                TextView t = findViewById(R.id.noteTitle);
-                String savedTitle = t.getText().toString();
-                intent.putExtra("savedTitle",savedTitle);
-            }
-        });
-
-
 
     }
     public void toNewNote(View view) {
         Intent i = new Intent(getApplicationContext(),NewNote.class);
-        startActivity(i);
-    }
-    public void toSavedNote(View view) {
-        TextView savedTitle = findViewById(R.id.noteTitle);
-        Intent i = new Intent(getApplicationContext(),NewNote.class);
-        i.putExtra("savedTitle",savedTitle.getText().toString());
         startActivity(i);
     }
 }
