@@ -1,6 +1,5 @@
 package com.bms.cschat;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,6 +17,9 @@ public class NewNote extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
 
+        title = findViewById(R.id.noteTitleEditText);
+        description = findViewById(R.id.noteDescriptionEdittext);
+
 
     }
 
@@ -28,6 +30,8 @@ public class NewNote extends AppCompatActivity {
 
         Note newNote = new Note(id,titletxt,desctxt);
         Note.noteArrayList.add(newNote);
+        Note.noteArrayList.notify();
+
         Intent i = new Intent(getApplicationContext(),Notes.class);
         startActivity(i);
         finish();
@@ -37,9 +41,4 @@ public class NewNote extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-        super.onBackPressed();
-    }
 }

@@ -41,9 +41,19 @@
             />
     </androidx.cardview.widget.CardView>
 
+    <ProgressBar
+        android:id="@+id/progressBarWebView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:indeterminateTint="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+
 <!--WebView Homepage is custom Page by We-Hub -->
     <WebView
-        android:visibility="invisible"
         android:id="@+id/browserWebview"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -51,225 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-
-<!--Home Page View-->
-    <androidx.cardview.widget.CardView
-        android:visibility="visible"
-        android:id="@+id/browserHomeScreen"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
-        <!--        First Row-->
-        <TableRow
-            android:id="@+id/tr1"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:weightSum="3"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/myschoolgist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/myschoolgist"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="My School Gist"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:id="@+id/waecdirect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/waec"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WAEC Direct"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:id="@+id/jumia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/jumia"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jumia"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-        </TableRow>
-
-    <!--Second Row-->
-        <TableRow
-            android:layout_marginTop="100dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/manirecruits"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/manir"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mani Recruits"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:id="@+id/coralexec"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                >
-                <androidx.cardview.widget.CardView
-                    android:foreground="@drawable/coral"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coral Executive"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CS Home"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-        </TableRow>
-    </androidx.cardview.widget.CardView>
-
-
-<!--ProgressBar by default is hidden by default-->
-    <ProgressBar
-        android:id="@+id/progressBarWebView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:indeterminateTint="@color/blue"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintTop_toTopOf="@+id/browserWebview" />
-
 
 <!--Lower Nav bar for the Browser Page not yet sure what to put there-->
     <androidx.cardview.widget.CardView

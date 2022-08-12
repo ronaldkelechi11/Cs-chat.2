@@ -23,24 +23,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Browser extends AppCompatActivity implements View.OnClickListener{
+public class Browser extends AppCompatActivity{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
-    CardView browserHomepage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
 
-        //Just to make sure that the screen always start properly
-        browserHomepage.setVisibility(View.VISIBLE);
-        webView.setVisibility(View.INVISIBLE);
 
         webView = findViewById(R.id.browserWebview);
         browserSearch = findViewById(R.id.browser_search);
         progressBar = findViewById(R.id.progressBarWebView);
-        browserHomepage = findViewById(R.id.browserHomeScreen);
 
 
         WebSettings webSettings = webView.getSettings();
@@ -48,10 +43,6 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
         webSettings.setSaveFormData(true);
-
-        webView.getUrl();
-
-
         webView.setWebViewClient(new MyWebViewClient());
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -62,10 +53,10 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
                     webView.loadUrl(browserSearch.getText().toString());
                 }
-
                 return false;
             }
         });
+
 
     }
 
@@ -90,38 +81,6 @@ public class Browser extends AppCompatActivity implements View.OnClickListener{
         }
         else{
            webView.loadUrl("google.com/search?q="+url);
-        }
-    }
-
-    //Switch Case for Redirection
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.myschoolgist:
-                loadUrl("www.myschoolgist.com");
-                browserHomepage.setVisibility(View.INVISIBLE);
-                webView.setVisibility(View.VISIBLE);
-                break;
-            case R.id.waecdirect:
-                loadUrl("www.waecdirect.com");
-                browserHomepage.setVisibility(View.INVISIBLE);
-                webView.setVisibility(View.VISIBLE);
-                break;
-            case R.id.jumia:
-                loadUrl("www.jumia.com");
-                browserHomepage.setVisibility(View.INVISIBLE);
-                webView.setVisibility(View.VISIBLE);
-                break;
-            case R.id.manirecruits:
-                loadUrl("www.manirecruits.com");
-                browserHomepage.setVisibility(View.INVISIBLE);
-                webView.setVisibility(View.VISIBLE);
-                break;
-            case R.id.coralexec:
-                loadUrl("www.coralexecutives.com");
-                browserHomepage.setVisibility(View.INVISIBLE);
-                webView.setVisibility(View.VISIBLE);
-                break;
         }
     }
 

@@ -3,6 +3,7 @@ package com.bms.cschat.classes;
 import java.util.ArrayList;
 
 public class Note {
+
     public static ArrayList<Note> noteArrayList = new ArrayList<>();
 
     int id;
