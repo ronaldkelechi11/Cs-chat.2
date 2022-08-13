@@ -4,8 +4,17 @@ import java.net.URI;
 
 public class News {
 
-    String content,by;
-    URI image_url;
+    String content,reporter,image;
+
+    public News(String content, String reporter, String image) {
+        this.content = content;
+        this.reporter = reporter;
+        this.image = image;
+    }
+
+    public News(){
+
+    }
 
     public String getContent() {
         return content;
@@ -15,20 +24,19 @@ public class News {
         this.content = content;
     }
 
-    public String getBy() {
-        return by;
+    public String getReporter() {
+        return reporter;
     }
 
-    public void setBy(String by) {
-        this.by = by;
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
     }
 
-    public URI getImage_url() {
-        return image_url;
+    public String getImage() {
+        return image;
     }
 
-    public void setImage_url(URI image_url) {
-        this.image_url = image_url;
+    public void setImage(String image) {
+        this.image = image;
     }
-
 }

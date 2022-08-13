@@ -31,6 +31,9 @@ public class NewNote extends AppCompatActivity {
 
         Note newNote = new Note(id,titletxt,desctxt);
         Note.noteArrayList.add(newNote);
+
+        Intent i = new Intent(getApplicationContext(),Notes.class);
+        startActivity(i);
         finish();
     }
 

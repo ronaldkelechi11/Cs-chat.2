@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+    android:isScrollContainer="true"
     android:padding="20dp"
     app:layoutDescription="@xml/activity_login_scene"
     tools:context=".Login">
