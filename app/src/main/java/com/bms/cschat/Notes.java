@@ -30,14 +30,7 @@ public class Notes extends AppCompatActivity {
         noteListView = findViewById(R.id.notesListView);
         NoteAdapter noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
-
-        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), Note.noteArrayList.size(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        
 
     }
 

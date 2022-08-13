@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bms.cschat.classes.Note;
 
@@ -30,10 +31,6 @@ public class NewNote extends AppCompatActivity {
 
         Note newNote = new Note(id,titletxt,desctxt);
         Note.noteArrayList.add(newNote);
-        Note.noteArrayList.notify();
-
-        Intent i = new Intent(getApplicationContext(),Notes.class);
-        startActivity(i);
         finish();
     }
 

@@ -11,18 +11,14 @@ import android.widget.LinearLayout;
 
 
 public class HomeScreen extends AppCompatActivity{
-    LinearLayout browserButton;
-    LinearLayout notesButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        browserButton = findViewById(R.id.browserButton);
-        notesButton = findViewById(R.id.notesButton);
     }
 
-    //Click On Linear Layouts
     public void goToBrowser(View view) {
         Intent b = new Intent(getApplicationContext(),Browser.class);
         startActivity(b);
