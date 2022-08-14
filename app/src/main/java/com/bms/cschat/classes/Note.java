@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Note {
 
     public static ArrayList<Note> noteArrayList = new ArrayList<>();
+    public static String NOTE_EDIT_EXTRA = "noteEdit";
+
 
     int id;
     String title;
@@ -14,6 +16,14 @@ public class Note {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public static Note getPassedNoteID(int passedNoteID) {
+        for(Note note: Note.noteArrayList){
+            if(note.getId() == passedNoteID)
+                return note;
+        }
+        return null;
     }
 
     public int getId() {

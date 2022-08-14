@@ -1,33 +1,38 @@
 package com.bms.cschat;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Patterns;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebChromeClient;
+
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Browser extends AppCompatActivity{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
+    String currentUrl;
+
+    {
+        assert webView != null;
+        currentUrl = webView.getUrl();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,7 @@ public class Browser extends AppCompatActivity{
         browserSearch = findViewById(R.id.browser_search);
         progressBar = findViewById(R.id.progressBarWebView);
 
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setBuiltInZoomControls(true);
@@ -44,7 +50,8 @@ public class Browser extends AppCompatActivity{
         webSettings.setSaveFormData(true);
 
         webView.setWebViewClient(new MyWebViewClient());
-        webView.loadUrl("https://ronaldkelechi11.github.io/CS-chat-Browser-Homepage/");
+        webView.loadUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
+
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -53,6 +60,7 @@ public class Browser extends AppCompatActivity{
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
                     webView.loadUrl(browserSearch.getText().toString());
+                    browserSearch.setText(currentUrl);
                 }
                 return false;
             }
@@ -73,6 +81,15 @@ public class Browser extends AppCompatActivity{
         super.onBackPressed();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     // Method to load URL and check if it's a url
     void loadUrl(String url){
@@ -88,7 +105,6 @@ public class Browser extends AppCompatActivity{
 
     // Web Client Service
     class MyWebViewClient extends WebViewClient {
-
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             return super.shouldOverrideUrlLoading(view, request);
@@ -99,12 +115,11 @@ public class Browser extends AppCompatActivity{
             progressBar.setVisibility(View.VISIBLE);
 
         }
-
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             progressBar.setVisibility(View.INVISIBLE);
-            Toast.makeText(getApplicationContext(), "Page Loaded", Toast.LENGTH_SHORT).show();
+            browserSearch.setText(currentUrl);
         }
 
     }

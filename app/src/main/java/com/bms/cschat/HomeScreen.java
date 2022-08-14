@@ -34,4 +34,9 @@ public class HomeScreen extends AppCompatActivity{
         Toast.makeText(getApplicationContext(), "Locked Feature", Toast.LENGTH_SHORT).show();
     }
 
+    public void goToTimetable(View view) {
+        Intent tt = new Intent(getApplicationContext(),TimeTable.class);
+        startActivity(tt);
+    }
+
 }
