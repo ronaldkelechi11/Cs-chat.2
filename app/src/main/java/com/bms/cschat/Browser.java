@@ -25,12 +25,6 @@ public class Browser extends AppCompatActivity{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
-    String currentUrl;
-
-    {
-        assert webView != null;
-        currentUrl = webView.getUrl();
-    }
 
 
     @Override
@@ -50,7 +44,7 @@ public class Browser extends AppCompatActivity{
         webSettings.setSaveFormData(true);
 
         webView.setWebViewClient(new MyWebViewClient());
-        webView.loadUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
+        loadMyUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
 
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -60,7 +54,6 @@ public class Browser extends AppCompatActivity{
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
                     webView.loadUrl(browserSearch.getText().toString());
-                    browserSearch.setText(currentUrl);
                 }
                 return false;
             }
@@ -92,7 +85,7 @@ public class Browser extends AppCompatActivity{
 
 
     // Method to load URL and check if it's a url
-    void loadUrl(String url){
+    void loadMyUrl(String url){
         boolean isUrl = Patterns.WEB_URL.matcher(url).matches();
         if(isUrl){
           webView.loadUrl(url);
@@ -119,7 +112,7 @@ public class Browser extends AppCompatActivity{
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             progressBar.setVisibility(View.INVISIBLE);
-            browserSearch.setText(currentUrl);
+            browserSearch.setText(webView.getUrl());
         }
 
     }

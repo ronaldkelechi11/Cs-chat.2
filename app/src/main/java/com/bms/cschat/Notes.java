@@ -23,12 +23,14 @@ public class Notes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
+        loadFromDB();
         noteListView = findViewById(R.id.notesListView);
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
-        loadFromDB();
-        onClickListener();
-        
+
+
+//        onClickListener();
+//
 
     }
 
@@ -36,16 +38,17 @@ public class Notes extends AppCompatActivity {
         NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
         notesSqliteManager.populateNoteArrayList();
     }
-    private void onClickListener() {
-        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Note selectedNote = (Note) noteListView.getItemAtPosition(position);
-                Intent editNoteIntent = new Intent(getApplicationContext(), NewNote.class);
-                editNoteIntent.putExtra(Note.NOTE_EDIT_EXTRA,selectedNote.getId());
-            }
-        });
-    }
+
+//    private void onClickListener() {
+//        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                Note selectedNote = (Note) noteListView.getItemAtPosition(position);
+//                Intent editNoteIntent = new Intent(getApplicationContext(), NewNote.class);
+//                editNoteIntent.putExtra(Note.NOTE_EDIT_EXTRA,selectedNote.getId());
+//            }
+//        });
+//    }
     public void toNewNote(View view) {
         Intent i = new Intent(getApplicationContext(),NewNote.class);
         startActivity(i);

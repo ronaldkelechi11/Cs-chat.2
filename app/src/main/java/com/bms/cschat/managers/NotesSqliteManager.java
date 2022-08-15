@@ -6,24 +6,23 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 import com.bms.cschat.classes.Note;
 
 public class NotesSqliteManager extends SQLiteOpenHelper {
 
     private static NotesSqliteManager notesSqliteManager;
 
-    private static final String DATABASE_NAME = "CSDB";
+    private static final String DATABASE_NAME = "CSDB.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "note";
-    private static final String COUNTER = "counter";
+    private static final String COUNTER = "Counter";
 
     private static final String ID_FIELD = "id";
-    private static final String TITLE_FIELD = "id";
-    private static final String DESCRIPTION_FIELD = "id";
+    private static final String TITLE_FIELD = "title";
+    private static final String DESCRIPTION_FIELD = "description";
 
     public NotesSqliteManager(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -37,20 +36,14 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-         StringBuilder sql;
-         sql = new StringBuilder()
-                 .append("CREATE TABLE")
-                 .append(TABLE_NAME)
-                 .append("(")
-                 .append(COUNTER)
-                 .append(" INTEGER PRIMARY KEY AUTOINCREMENT, ")
-                 .append(ID_FIELD)
-                 .append(" INT, ")
-                 .append(TITLE_FIELD)
-                 .append(" TEXT, ")
-                 .append(DESCRIPTION_FIELD)
-                 .append(" TEXT, ");
-         sqLiteDatabase.execSQL(sql.toString());
+    String sqlexec =
+                "CREATE TABLE " + TABLE_NAME
+                + "(" + COUNTER + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + ID_FIELD + " INT, "
+                + TITLE_FIELD + " TEXT, "
+                + DESCRIPTION_FIELD + " TEXT);" ;
+
+         sqLiteDatabase.execSQL(sqlexec);
     }
 
     @Override
@@ -82,7 +75,6 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
                 }
             }
         }
-
     }
 
     public void updateNoteInDB(Note note){
