@@ -3,41 +3,47 @@ package com.bms.cschat.classes;
 import java.util.ArrayList;
 
 public class Timetable {
-    String Day,Location,Time;
+    String Day;
+    String Location;
+    String Time1;
+    String Time2;
 
-    public Timetable(String day, String location, String time) {
+    public Timetable(String day, String location, String time1, String time2) {
         this.Day = day;
         this.Location = location;
-        this.Time = time;
+        this.Time1 = time1;
+        this.Time2 = time2;
     }
-    //TODO: Change time to a time format to work better or leave as it is
 
     public static ArrayList<Note> timetableArrayList = new ArrayList<>();
 
+    //Getters
     public String getDay() {
         return Day;
     }
-
-    public void setDay(String day) {
-        Day = day;
-    }
-
     public String getLocation() {
         return Location;
     }
+    public String getTime2() {
+        return Time2;
+    }
+    public String getTime1() {
+        return Time1;
+    }
 
+    //Setters
     public void setLocation(String location) {
         Location = location;
     }
-
-    public String getTime() {
-        return Time;
+    public void setDay(String day) {
+        Day = day;
     }
-
-    public void setTime(String time) {
-        Time = time;
+    public void setTime1(String time) {
+        Time1 = time;
     }
-
+    public void setTime2(String time2) {
+        Time2 = time2;
+    }
 
 
 }

@@ -16,6 +16,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,6 +26,9 @@ public class Browser extends AppCompatActivity{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
+    int Counter = 1;
+
+    ImageView webBack,webForward,webRefresh;
 
 
     @Override
@@ -36,6 +40,14 @@ public class Browser extends AppCompatActivity{
         browserSearch = findViewById(R.id.browser_search);
         progressBar = findViewById(R.id.progressBarWebView);
 
+        webBack = findViewById(R.id.goBack);
+        webForward = findViewById(R.id.goForward);
+        webRefresh = findViewById(R.id.tryRefresh);
+
+        if(Counter == 1) {
+            browserSearch.setText("");
+            Counter++;
+        }
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -56,6 +68,29 @@ public class Browser extends AppCompatActivity{
                     webView.loadUrl(browserSearch.getText().toString());
                 }
                 return false;
+            }
+        });
+
+        webBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                }
+            }
+        });
+        webForward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(webView.canGoForward()){
+                    webView.goForward();
+                }
+            }
+        });
+        webRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.reload();
             }
         });
 
