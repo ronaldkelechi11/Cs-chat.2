@@ -44,10 +44,6 @@ public class Browser extends AppCompatActivity{
         webForward = findViewById(R.id.goForward);
         webRefresh = findViewById(R.id.tryRefresh);
 
-        if(Counter == 1) {
-            browserSearch.setText("");
-            Counter++;
-        }
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -147,7 +143,13 @@ public class Browser extends AppCompatActivity{
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             progressBar.setVisibility(View.INVISIBLE);
-            browserSearch.setText(webView.getUrl());
+            if(Counter == 1) {
+                browserSearch.setText("");
+                Counter++;
+            }
+            else{
+                browserSearch.setText(webView.getUrl());
+            }
         }
 
     }
