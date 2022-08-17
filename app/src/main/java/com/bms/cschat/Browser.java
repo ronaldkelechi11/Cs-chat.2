@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,7 +54,20 @@ public class Browser extends AppCompatActivity{
         webSettings.setSaveFormData(true);
 
         webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
+
         loadMyUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
+
+        if(webView.getUrl().equals("about:blank")){
+            browserSearch.setText("");
+            progressBar.setVisibility(View.VISIBLE);
+        }
+        if(!webView.canGoBack()){
+            webBack.setImageResource(R.drawable.no_left);
+        }
+        if(!webView.canGoForward()){
+            webForward.setImageResource(R.drawable.no_right);
+        }
 
 
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -122,7 +137,7 @@ public class Browser extends AppCompatActivity{
           webView.loadUrl(url);
         }
         else{
-           webView.loadUrl("google.com/search?q="+url);
+           webView.loadUrl("https://wwww.google.com/search?q="+url);
         }
     }
 
@@ -137,7 +152,6 @@ public class Browser extends AppCompatActivity{
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             progressBar.setVisibility(View.VISIBLE);
-
         }
         @Override
         public void onPageFinished(WebView view, String url) {

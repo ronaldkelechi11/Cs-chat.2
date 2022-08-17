@@ -32,7 +32,7 @@
             android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:paddingTop="1dp"
             android:drawableStart="@drawable/google_img"
             android:drawablePadding="10dp"
@@ -57,7 +57,7 @@
         android:id="@+id/browserWebview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintBottom_toTopOf="@+id/lowerNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
@@ -65,7 +65,7 @@
 <!--Lower Nav bar for the Browser Page not yet sure what to put there-->
     <androidx.cardview.widget.CardView
         android:visibility="visible"
-        android:id="@+id/cardView3"
+        android:id="@+id/lowerNavBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:cardBackgroundColor="@color/blue"
