@@ -13,7 +13,7 @@ import com.bms.cschat.managers.NotesSqliteManager;
 
 public class NewNote extends AppCompatActivity {
     EditText title,description;
-    private Note selectedNote;
+    Note selectedNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +22,16 @@ public class NewNote extends AppCompatActivity {
 
         title = findViewById(R.id.noteTitleEditText);
         description = findViewById(R.id.noteDescriptionEdittext);
-        checkforEditNote();
+        checkForEditNote();
 
 
     }
 
-    private void checkforEditNote() {
+    private void checkForEditNote() {
         Intent previousIntent = getIntent();
-        int passedNoteID = previousIntent.getIntExtra(Note.NOTE_EDIT_EXTRA, -1);
+        int passedNoteID = previousIntent.getIntExtra(Note.NOTE_EDIT_EXTRA, 0);
         selectedNote = Note.getPassedNoteID(passedNoteID);
-        if(selectedNote == null){
+        if(selectedNote != null){
             title.setText(selectedNote.getTitle());
             description.setText(selectedNote.getDescription());
         }

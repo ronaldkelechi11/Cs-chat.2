@@ -3,6 +3,7 @@ package com.bms.cschat;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Patterns;
 
 import android.view.KeyEvent;
@@ -23,14 +24,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 public class Browser extends AppCompatActivity{
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
     int Counter = 1;
+    public final String Homepage = "https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/";
 
     ImageView webBack,webForward,webRefresh;
+    CardView lowerNavBar;
 
 
     @Override
@@ -45,6 +52,7 @@ public class Browser extends AppCompatActivity{
         webBack = findViewById(R.id.goBack);
         webForward = findViewById(R.id.goForward);
         webRefresh = findViewById(R.id.tryRefresh);
+        lowerNavBar = findViewById(R.id.lowerNavBar);
 
 
         WebSettings webSettings = webView.getSettings();
@@ -52,11 +60,9 @@ public class Browser extends AppCompatActivity{
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
         webSettings.setSaveFormData(true);
-
         webView.setWebViewClient(new MyWebViewClient());
-        webView.setWebChromeClient(new WebChromeClient());
 
-        loadMyUrl("https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/");
+        loadMyUrl(Homepage);
 
         if(webView.getUrl().equals("about:blank")){
             browserSearch.setText("");
@@ -70,6 +76,21 @@ public class Browser extends AppCompatActivity{
         }
 
 
+        // Keyboard Visibility Event to hide the Lower Nav Bar if KeyBoard is visible
+        KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
+            @Override
+            public void onVisibilityChanged(boolean isOpen) {
+                if(isOpen){
+                    lowerNavBar.setVisibility(View.GONE);
+                }
+                else {
+                    lowerNavBar.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        // Keyboard Input DONE or GO
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -82,11 +103,15 @@ public class Browser extends AppCompatActivity{
             }
         });
 
+
         webBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (webView.canGoBack()) {
                     webView.goBack();
+                }
+                else if(!webView.canGoBack()){
+                    Toast.makeText(getApplicationContext(), "Can't Go Backward", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -95,6 +120,9 @@ public class Browser extends AppCompatActivity{
             public void onClick(View view) {
                 if(webView.canGoForward()){
                     webView.goForward();
+                }
+                else if(!webView.canGoForward()){
+                    Toast.makeText(getApplicationContext(), "Can't Go Forward", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -105,8 +133,7 @@ public class Browser extends AppCompatActivity{
             }
         });
 
-
-    }
+    }// End of Initial Class
 
     //Back Pressed Button
     @Override
@@ -120,6 +147,7 @@ public class Browser extends AppCompatActivity{
         super.onBackPressed();
     }
 
+    //KeyBack Button
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
@@ -137,7 +165,7 @@ public class Browser extends AppCompatActivity{
           webView.loadUrl(url);
         }
         else{
-           webView.loadUrl("https://wwww.google.com/search?q="+url);
+           webView.loadUrl("https://www.google.com/search?q="+url);
         }
     }
 
@@ -161,11 +189,14 @@ public class Browser extends AppCompatActivity{
                 browserSearch.setText("");
                 Counter++;
             }
+            else if(browserSearch.getText().toString().equals(Homepage)){
+                browserSearch.setText("");
+            }
             else{
                 browserSearch.setText(webView.getUrl());
             }
         }
 
-    }
 
+    }
 }
