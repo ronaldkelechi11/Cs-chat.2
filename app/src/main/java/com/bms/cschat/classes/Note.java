@@ -12,6 +12,7 @@ public class Note {
     String title;
     String description;
 
+    // Constructor
     public Note(int id, String title, String description) {
         this.id = id;
         this.title = title;
@@ -26,27 +27,25 @@ public class Note {
         return null;
     }
 
+    //Getters
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
     }
 
+    //Setters
     public void setDescription(String description) {
         this.description = description;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }

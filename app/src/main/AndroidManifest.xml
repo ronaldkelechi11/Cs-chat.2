@@ -16,8 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cschat">
         <activity
+            android:name=".NewTimetable"
+            android:exported="false" />
+        <activity
             android:name=".TimeTable"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".NewNote"
             android:exported="false" />

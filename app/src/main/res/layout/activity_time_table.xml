@@ -29,7 +29,7 @@
         </Toolbar>
 
         <ListView
-            android:id="@+id/notesListView"
+            android:id="@+id/timetableListView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="5dp"
@@ -47,6 +47,7 @@
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:onClick="newTimetable"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="30dp"

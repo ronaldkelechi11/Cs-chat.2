@@ -15,7 +15,7 @@ public class Timetable {
         this.Time2 = time2;
     }
 
-    public static ArrayList<Note> timetableArrayList = new ArrayList<>();
+    public static ArrayList<Timetable> timetableArrayList = new ArrayList<>();
 
     //Getters
     public String getDay() {

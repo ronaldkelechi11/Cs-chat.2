@@ -22,6 +22,11 @@ public class NewNote extends AppCompatActivity {
 
         title = findViewById(R.id.noteTitleEditText);
         description = findViewById(R.id.noteDescriptionEdittext);
+
+        //To make sure it always starts blank
+        title.setText("");
+        description.setText("");
+
         checkForEditNote();
 
 
@@ -45,20 +50,19 @@ public class NewNote extends AppCompatActivity {
 
         if(selectedNote == null){
             Note newNote = new Note(id,titletxt,desctxt);
-            Note.noteArrayList.add(newNote);
             notesSqliteManager.addNoteToDatabase(newNote);
+            Toast.makeText(getApplicationContext(), "Noted Saved", Toast.LENGTH_SHORT).show();
         }
         else{
             selectedNote.setTitle(titletxt);
             selectedNote.setDescription(desctxt);
             notesSqliteManager.updateNoteInDB(selectedNote);
         }
-        Intent i = new Intent(getApplicationContext(),Notes.class);
-        startActivity(i);
         finish();
     }
 
     public void cancel(View view) {
+        //TODO: Try to create alert to make sure the person doesn't do it by mistake
         finish();
     }
 
