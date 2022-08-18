@@ -57,6 +57,7 @@ public class NewNote extends AppCompatActivity {
             selectedNote.setTitle(titletxt);
             selectedNote.setDescription(desctxt);
             notesSqliteManager.updateNoteInDB(selectedNote);
+            Toast.makeText(getApplicationContext(), "Note Updated", Toast.LENGTH_SHORT).show();
         }
         finish();
     }

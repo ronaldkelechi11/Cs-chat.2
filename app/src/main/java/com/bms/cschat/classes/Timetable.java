@@ -3,21 +3,31 @@ package com.bms.cschat.classes;
 import java.util.ArrayList;
 
 public class Timetable {
+    int id;
     String Day;
+
+
+
+
+
     String Location;
     String Time1;
     String Time2;
 
-    public Timetable(String day, String location, String time1, String time2) {
+    public static ArrayList<Timetable> timetableArrayList = new ArrayList<>();
+
+    public Timetable(int id, String day, String location, String time1, String time2) {
+        this.id = id;
         this.Day = day;
         this.Location = location;
         this.Time1 = time1;
         this.Time2 = time2;
     }
 
-    public static ArrayList<Timetable> timetableArrayList = new ArrayList<>();
-
     //Getters
+    public int getId() {
+        return id;
+    }
     public String getDay() {
         return Day;
     }
@@ -31,7 +41,11 @@ public class Timetable {
         return Time1;
     }
 
+
     //Setters
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setLocation(String location) {
         Location = location;
     }
@@ -44,6 +58,7 @@ public class Timetable {
     public void setTime2(String time2) {
         Time2 = time2;
     }
+
 
 
 }

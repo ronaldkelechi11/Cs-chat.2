@@ -21,7 +21,9 @@ public class TimeTable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_table);
 
-        //TODO: Create Custom NewTimetable Item then Continue
+        timeTabelListView = findViewById(R.id.timetableListView);
+        timetableAdapter = new TimetableAdapter(this,Timetable.timetableArrayList);
+        timeTabelListView.setAdapter(timetableAdapter);
 
     }
 

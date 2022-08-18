@@ -17,19 +17,25 @@
         android:theme="@style/Theme.Cschat">
         <activity
             android:name=".NewTimetable"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".TimeTable"/>
         <activity
             android:name=".TimeTable"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HomeScreen"/>
         <activity
             android:name=".NewNote"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Notes"/>
         <activity
             android:name=".Notes"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HomeScreen"/>
         <activity
             android:name=".Browser"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HomeScreen" />
+<!--TODO: exChange .MainActivity and .HomeScreen-->
         <activity
             android:name=".MainActivity"
             android:exported="false" />

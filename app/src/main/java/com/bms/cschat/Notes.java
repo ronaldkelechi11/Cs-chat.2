@@ -23,12 +23,15 @@ public class Notes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
+        //TODO: Try to create a function that is called to check if it has
+        // been populated before and not do it again
+        
         loadFromDB();
         noteListView = findViewById(R.id.notesListView);
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
-//        onClickListener();
+        onClickListener();
 
 
     }
@@ -39,16 +42,18 @@ public class Notes extends AppCompatActivity {
     }
 
 
-//    private void onClickListener() {
-//        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Note selectedNote = (Note) noteListView.getItemAtPosition(position);
-//                Intent editNoteIntent = new Intent(getApplicationContext(), NewNote.class);
-//                editNoteIntent.putExtra(Note.NOTE_EDIT_EXTRA,selectedNote.getId());
-//            }
-//        });
-//    }
+    private void onClickListener() {
+        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Note selectedNote = (Note) noteListView.getItemAtPosition(position);
+                Intent editNoteIntent = new Intent(getApplicationContext(), NewNote.class);
+                editNoteIntent.putExtra(Note.NOTE_EDIT_EXTRA,selectedNote.getId());
+                startActivity(editNoteIntent);
+            }
+        });
+    }
+
 
     public void toNewNote(View view) {
         Intent i = new Intent(Notes.this,NewNote.class);
