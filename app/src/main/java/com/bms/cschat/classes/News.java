@@ -1,10 +1,10 @@
 package com.bms.cschat.classes;
 
-import java.net.URI;
 
 public class News {
 
-    String content,reporter,image;
+    String content,reporter;
+    String image;
 
     public News(String content, String reporter, String image) {
         this.content = content;

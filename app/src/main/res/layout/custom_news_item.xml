@@ -6,6 +6,7 @@
     android:background="@android:color/transparent"
     android:layout_height="100dp"
     android:elevation="10dp"
+    app:cardCornerRadius="5dp"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/byLine"
+            android:id="@+id/newsReporter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

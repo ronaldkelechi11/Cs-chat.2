@@ -62,8 +62,8 @@ public class NewTimetable extends AppCompatActivity {
             time1.requestFocus();
             return;
         }
-        if(!time1Txt.contains("am") || !time1Txt.contains("pm")){
-            time1.setError("Must indicate am/pm e.g 11:00am");
+        if(!time1Txt.contains("m")){
+            time1.setError("Must indicate am or pm e.g 11:00am");
             time1.requestFocus();
             return;
         }
@@ -72,8 +72,8 @@ public class NewTimetable extends AppCompatActivity {
             time2.requestFocus();
             return;
         }
-        if(time2Txt.contains("am") || !time2Txt.contains("pm")){
-            time2.setError("Must indicate am/pm e.g 2:30am");
+        if(!time2Txt.contains("m")){
+            time2.setError("Must indicate am or pm e.g 2:30am");
             time2.requestFocus();
             return;
         }

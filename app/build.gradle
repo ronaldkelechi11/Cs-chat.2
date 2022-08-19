@@ -44,5 +44,8 @@ dependencies {
 //    Keyboard Visibility dependency
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
 
+//    Picasso Library
+    implementation 'com.squareup.picasso:picasso:2.8'
+
 
 }

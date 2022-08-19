@@ -64,16 +64,6 @@ public class Browser extends AppCompatActivity{
 
         loadMyUrl(Homepage);
 
-        if(webView.getUrl().equals("about:blank")){
-            browserSearch.setText("");
-            progressBar.setVisibility(View.VISIBLE);
-        }
-        if(!webView.canGoBack()){
-            webBack.setImageResource(R.drawable.no_left);
-        }
-        if(!webView.canGoForward()){
-            webForward.setImageResource(R.drawable.no_right);
-        }
 
 
         // Keyboard Visibility Event to hide the Lower Nav Bar if KeyBoard is visible
@@ -94,10 +84,11 @@ public class Browser extends AppCompatActivity{
         browserSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                String url = browserSearch.getText().toString();
                 if(i == EditorInfo.IME_ACTION_GO || i == EditorInfo.IME_ACTION_DONE){
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(browserSearch.getWindowToken(),0);
-                    webView.loadUrl(browserSearch.getText().toString());
+                    loadMyUrl(url);
                 }
                 return false;
             }
@@ -165,7 +156,7 @@ public class Browser extends AppCompatActivity{
           webView.loadUrl(url);
         }
         else{
-           webView.loadUrl("https://www.google.com/search?q="+url);
+           webView.loadUrl("https://www.google.com/search?q=" + url);
         }
     }
 
@@ -178,25 +169,23 @@ public class Browser extends AppCompatActivity{
         }
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
             progressBar.setVisibility(View.VISIBLE);
+            super.onPageStarted(view, url, favicon);
         }
         @Override
         public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
             progressBar.setVisibility(View.INVISIBLE);
             if(Counter == 1) {
                 browserSearch.setText("");
                 Counter++;
             }
-            else if(browserSearch.getText().toString().equals(Homepage)){
+            if(browserSearch.getText().toString().equals(Homepage) || browserSearch.getText().toString().equals("about:blank")){
                 browserSearch.setText("");
             }
             else{
                 browserSearch.setText(webView.getUrl());
             }
+            super.onPageFinished(view, url);
         }
-
-
     }
 }

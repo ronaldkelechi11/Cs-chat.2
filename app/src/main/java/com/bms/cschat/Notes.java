@@ -25,7 +25,7 @@ public class Notes extends AppCompatActivity {
 
         //TODO: Try to create a function that is called to check if it has
         // been populated before and not do it again
-        
+
         loadFromDB();
         noteListView = findViewById(R.id.notesListView);
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
