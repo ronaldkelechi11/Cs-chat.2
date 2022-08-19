@@ -1,10 +1,11 @@
 package com.bms.cschat.classes;
 
+import com.bms.cschat.managers.NotesSqliteManager;
+
 import java.util.ArrayList;
 
 public class Note {
 
-    public static ArrayList<Note> noteArrayList = new ArrayList<>();
     public static String NOTE_EDIT_EXTRA = "noteEdit";
 
 
@@ -20,7 +21,7 @@ public class Note {
     }
 
     public static Note getPassedNoteID(int passedNoteID) {
-        for(Note note: Note.noteArrayList){
+        for(Note note: NotesSqliteManager.noteArrayList){
             if(note.getId() == passedNoteID)
                 return note;
         }

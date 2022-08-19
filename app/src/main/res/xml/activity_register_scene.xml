@@ -56,7 +56,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/toLogin"
-            motion:layout_editor_absoluteY="404dp"
-            motion:layout_editor_absoluteX="62dp" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/RegisterButton"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_editor_absoluteY="404dp" />
     </ConstraintSet>
 </MotionScene>

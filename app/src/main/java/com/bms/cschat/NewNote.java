@@ -1,5 +1,6 @@
 package com.bms.cschat;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,10 +24,6 @@ public class NewNote extends AppCompatActivity {
         title = findViewById(R.id.noteTitleEditText);
         description = findViewById(R.id.noteDescriptionEdittext);
 
-        //To make sure it always starts blank
-        title.setText("");
-        description.setText("");
-
         checkForEditNote();
 
 
@@ -34,11 +31,17 @@ public class NewNote extends AppCompatActivity {
 
     private void checkForEditNote() {
         Intent previousIntent = getIntent();
-        int passedNoteID = previousIntent.getIntExtra(Note.NOTE_EDIT_EXTRA, 0);
+        int passedNoteID = previousIntent.getIntExtra(Note.NOTE_EDIT_EXTRA, -1);
         selectedNote = Note.getPassedNoteID(passedNoteID);
-        if(selectedNote != null){
+
+        boolean decider = selectedNote == null;
+        if(selectedNote != null) {
             title.setText(selectedNote.getTitle());
             description.setText(selectedNote.getDescription());
+        }
+        if(selectedNote == null){
+            title.setText("");
+            description.setText("");
         }
     }
 
@@ -46,7 +49,7 @@ public class NewNote extends AppCompatActivity {
         NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
         String titletxt = title.getText().toString();
         String desctxt = description.getText().toString();
-        int id = Note.noteArrayList.size();
+        int id = NotesSqliteManager.noteArrayList.size();
 
         if(selectedNote == null){
             Note newNote = new Note(id,titletxt,desctxt);
@@ -63,7 +66,6 @@ public class NewNote extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        //TODO: Try to create alert to make sure the person doesn't do it by mistake
         finish();
     }
 

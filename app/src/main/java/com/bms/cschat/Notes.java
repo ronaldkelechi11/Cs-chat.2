@@ -17,24 +17,23 @@ import com.bms.cschat.managers.NotesSqliteManager;
 public class Notes extends AppCompatActivity {
     ListView noteListView;
     NoteAdapter noteAdapter;
+    int Counter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        //TODO: Try to create a function that is called to check if it has
-        // been populated before and not do it again
-
         loadFromDB();
+
         noteListView = findViewById(R.id.notesListView);
-        noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
+        noteAdapter = new NoteAdapter(getApplicationContext(), NotesSqliteManager.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
         onClickListener();
-
-
     }
+
+
 
     private void loadFromDB() {
         NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
@@ -56,8 +55,8 @@ public class Notes extends AppCompatActivity {
 
 
     public void toNewNote(View view) {
-        Intent i = new Intent(Notes.this,NewNote.class);
+        Intent i = new Intent(getApplicationContext(),NewNote.class);
         startActivity(i);
+        finish();
     }
-
 }

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
     Context context;
-    ArrayList<News> news;
+   ArrayList<News> news;
 
     public NewsAdapter(Context context, ArrayList<News> news) {
         this.context = context;
@@ -27,15 +27,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.custom_news_item,parent,false));
+    public NewsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_news_item,parent,false);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.content.setText(news.get(position).getContent());
-        holder.reporter.setText(news.get(position).getReporter());
-        Picasso.get().load(news.get(position).getImage()).into(holder.image);
+    public void onBindViewHolder(@NonNull NewsAdapter.MyViewHolder holder, int position) {
+        News newNews = news.get(position);
+        holder.content.setText(newNews.getContent());
+        holder.reporter.setText(newNews.getReporter());
+        Picasso.get().load(newNews.getImage()).into(holder.contentImage);
     }
 
     @Override
@@ -43,16 +45,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         return news.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView content,reporter;
-        ImageView image;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+            TextView content,reporter;
+            ImageView contentImage;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             content = itemView.findViewById(R.id.newsContent);
             reporter = itemView.findViewById(R.id.newsReporter);
-            image = itemView.findViewById(R.id.newsImage);
+            contentImage = itemView.findViewById(R.id.newsImage);
         }
     }
-
 }

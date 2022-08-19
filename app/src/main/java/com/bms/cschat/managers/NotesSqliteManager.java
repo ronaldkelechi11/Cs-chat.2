@@ -8,7 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.bms.cschat.classes.Note;
 
+import java.util.ArrayList;
+
 public class NotesSqliteManager extends SQLiteOpenHelper {
+
+
+    public static ArrayList<Note> noteArrayList = new ArrayList<>();
 
     private static NotesSqliteManager notesSqliteManager;
 
@@ -71,7 +76,7 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
                     String title = result.getString(2);
                     String description = result.getString(3);
                     Note note = new Note(id,title,description);
-                    Note.noteArrayList.add(note);
+                    NotesSqliteManager.noteArrayList.add(note);
                 }
             }
         }
