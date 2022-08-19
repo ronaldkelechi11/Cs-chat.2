@@ -25,18 +25,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 public class Browser extends AppCompatActivity{
+    SwipeRefreshLayout refreshLayout;
     EditText browserSearch;
     WebView webView;
     ProgressBar progressBar;
     int Counter = 1;
     public final String Homepage = "https://ronaldkelechi11.github.io/CS-Chat-Browser-Homepage/";
 
-    ImageView webBack,webForward,webRefresh;
+    ImageView webBack,webForward;
     CardView lowerNavBar;
 
 
@@ -51,7 +53,7 @@ public class Browser extends AppCompatActivity{
 
         webBack = findViewById(R.id.goBack);
         webForward = findViewById(R.id.goForward);
-        webRefresh = findViewById(R.id.tryRefresh);
+        refreshLayout = findViewById(R.id.refresh);
         lowerNavBar = findViewById(R.id.lowerNavBar);
 
 
@@ -117,13 +119,12 @@ public class Browser extends AppCompatActivity{
                 }
             }
         });
-        webRefresh.setOnClickListener(new View.OnClickListener() {
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View view) {
+            public void onRefresh() {
                 webView.reload();
             }
         });
-
     }// End of Initial Class
 
     //Back Pressed Button

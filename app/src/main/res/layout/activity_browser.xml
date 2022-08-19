@@ -51,16 +51,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-
-<!--WebView Homepage is custom Page by We-Hub -->
-    <WebView
-        android:id="@+id/browserWebview"
-        android:layout_width="0dp"
+    <!--WebView Homepage is custom Page by We-Hub -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/lowerNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        >
+        <WebView
+            android:id="@+id/browserWebview"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
 
 <!--Lower Nav bar for the Browser Page not yet sure what to put there-->
     <androidx.cardview.widget.CardView
@@ -90,13 +98,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:src="@drawable/right"
-                />
-            <ImageView
-                android:id="@+id/tryRefresh"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:src="@drawable/refresh"
                 />
         </TableRow>
     </androidx.cardview.widget.CardView>
