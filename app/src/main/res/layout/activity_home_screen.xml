@@ -479,14 +479,30 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:listitem="@layout/custom_news_item" />
         <ProgressBar
+            android:visibility="gone"
             android:id="@+id/progressBarHomeScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/blue"
+            android:indeterminateTint="@color/red"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/progressBarHomeScreenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="20sp"
+            android:text="Poor Internet Connection"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarHomeScreen" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

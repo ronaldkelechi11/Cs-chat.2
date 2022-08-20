@@ -18,17 +18,13 @@ public class Notes extends AppCompatActivity {
     ListView noteListView;
     NoteAdapter noteAdapter;
     int Counter = 1;
-    NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        if(Counter == 1){
-            notesSqliteManager.populateNoteArrayList();
-        }
-        else
 
         noteListView = findViewById(R.id.notesListView);
         noteAdapter = new NoteAdapter(getApplicationContext(), NotesSqliteManager.noteArrayList);

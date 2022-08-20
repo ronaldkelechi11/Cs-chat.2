@@ -3,6 +3,7 @@ package com.bms.cschat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,10 @@ import com.bms.cschat.managers.NotesSqliteManager;
 public class NewNote extends AppCompatActivity {
     EditText title,description;
     Note selectedNote;
+
+    NotesSqliteManager notesSqliteManager = new NotesSqliteManager(getApplicationContext());
+    AlertDialog alertDialog;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +78,26 @@ public class NewNote extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        finish();
+
+        builder = new AlertDialog.Builder(NewNote.this);
+        builder.setMessage("Are you sure you want to Exit?");
+        builder.setCancelable(true);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                alertDialog.cancel();
+            }
+        })
+        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                alertDialog.cancel();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }
