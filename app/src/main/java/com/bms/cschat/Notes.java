@@ -18,28 +18,25 @@ public class Notes extends AppCompatActivity {
     ListView noteListView;
     NoteAdapter noteAdapter;
     int Counter = 1;
+    NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        loadFromDB();
+        if(Counter == 1){
+            notesSqliteManager.populateNoteArrayList();
+        }
+        else
 
         noteListView = findViewById(R.id.notesListView);
         noteAdapter = new NoteAdapter(getApplicationContext(), NotesSqliteManager.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
         onClickListener();
+
     }
-
-
-
-    private void loadFromDB() {
-        NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
-        notesSqliteManager.populateNoteArrayList();
-    }
-
 
     private void onClickListener() {
         noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -59,4 +56,6 @@ public class Notes extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+
 }

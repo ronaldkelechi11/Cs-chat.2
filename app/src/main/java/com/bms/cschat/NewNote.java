@@ -51,6 +51,13 @@ public class NewNote extends AppCompatActivity {
         String desctxt = description.getText().toString();
         int id = NotesSqliteManager.noteArrayList.size();
 
+        //FrontEnd Validation
+        if(titletxt.isEmpty()){
+            title.setError("Title Cannot be empty");
+            title.requestFocus();
+            return;
+        }
+
         if(selectedNote == null){
             Note newNote = new Note(id,titletxt,desctxt);
             notesSqliteManager.addNoteToDatabase(newNote);

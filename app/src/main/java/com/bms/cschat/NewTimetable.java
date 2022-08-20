@@ -39,6 +39,14 @@ public class NewTimetable extends AppCompatActivity {
         int id = Timetable.timetableArrayList.size();
 
         ArrayList<String> days = new ArrayList<>();
+
+        days.add("monday");
+        days.add("tuesday");
+        days.add("wednesday");
+        days.add("thursday");
+        days.add("friday");
+        days.add("saturday");
+
         days.add("Monday");
         days.add("Tuesday");
         days.add("Wednesday");
@@ -77,7 +85,6 @@ public class NewTimetable extends AppCompatActivity {
             time2.requestFocus();
             return;
         }
-
 
         Timetable newTimetable = new Timetable(id,dayTxt,locationTxt,time1Txt,time2Txt);
         Timetable.timetableArrayList.add(newTimetable);

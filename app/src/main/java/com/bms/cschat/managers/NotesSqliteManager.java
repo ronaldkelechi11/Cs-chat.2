@@ -81,7 +81,6 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
             }
         }
     }
-
     public void updateNoteInDB(Note note){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

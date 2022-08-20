@@ -30,6 +30,7 @@ public class TimeTable extends AppCompatActivity {
     public void newTimetable(View view) {
         Intent i = new Intent(getApplicationContext(),NewTimetable.class);
         startActivity(i);
+        finish();
     }
 
 }

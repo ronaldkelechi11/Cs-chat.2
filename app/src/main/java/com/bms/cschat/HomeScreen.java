@@ -55,7 +55,7 @@ public class HomeScreen extends AppCompatActivity{
             }
         });
 
-    }
+    }//End of Initial Class
     public void goToBrowser(View view) {
         Intent b = new Intent(getApplicationContext(),Browser.class);
         startActivity(b);
@@ -65,7 +65,7 @@ public class HomeScreen extends AppCompatActivity{
         startActivity(n);
     }
     public void lockedFeatures(View view) {
-        Toast.makeText(getApplicationContext(), "Locked Feature", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Locked Feature wait till futher notice", Toast.LENGTH_SHORT).show();
     }
     public void goToTimetable(View view) {
         Intent tt = new Intent(getApplicationContext(),TimeTable.class);
