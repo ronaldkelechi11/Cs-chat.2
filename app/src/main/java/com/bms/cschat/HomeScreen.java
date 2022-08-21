@@ -40,6 +40,7 @@ public class HomeScreen extends AppCompatActivity{
     TextView progressBarTextView;
 
     int Counter = 1;
+    TimetableSqliteManager timetableSqliteManager = TimetableSqliteManager.instanceOfDatabase(this);
     NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
 
 
@@ -49,7 +50,7 @@ public class HomeScreen extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-
+        timetableSqliteManager.populateTimetableArrayList();
         notesSqliteManager.populateNoteArrayList();
 
         progressBar = findViewById(R.id.progressBarHomeScreen);

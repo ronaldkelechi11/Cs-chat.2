@@ -44,7 +44,7 @@
         android:singleLine="false"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/tableRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

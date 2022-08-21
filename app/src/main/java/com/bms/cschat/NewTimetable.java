@@ -31,7 +31,7 @@ public class NewTimetable extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(NewTimetable.this);
         builder.setMessage("Are you sure you wish to exit?");
         builder.setCancelable(true);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -111,7 +111,10 @@ public class NewTimetable extends AppCompatActivity {
 
         TimetableSqliteManager timetableSqliteManager = TimetableSqliteManager.instanceOfDatabase(this);
         Timetable newTimetable = new Timetable(id,dayTxt,locationTxt,time1Txt,time2Txt);
+
         timetableSqliteManager.addTimeTableToDatabase(newTimetable);
+        Timetable.timeTableArrayList.add(newTimetable);
+
 
         Toast.makeText(getApplicationContext(), "New TimeTable Added", Toast.LENGTH_SHORT).show();
         finish();

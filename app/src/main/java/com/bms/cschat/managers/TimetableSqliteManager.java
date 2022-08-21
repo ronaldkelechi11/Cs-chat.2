@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQuery;
+import android.util.Log;
 
 import com.bms.cschat.classes.Timetable;
 
@@ -17,10 +18,11 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
 
     private static TimetableSqliteManager timeTableSqliteManger;
 
-    private static final String DATABASE_NAME = "CSD.db";
+    private static final String DATABASE_NAME = "CSDB.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "timetable";
     private static final String COUNTER = "Counter";
+
 
     private static final String ID_FIELD = "id";
     private static final String DAY_FIELD = "title";

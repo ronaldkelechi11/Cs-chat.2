@@ -16,7 +16,7 @@ public class TimeTable extends AppCompatActivity {
     TimetableAdapter timetableAdapter;
     ListView timeTabelListView;
 
-    TimetableSqliteManager timetableSqliteManager = TimetableSqliteManager.instanceOfDatabase(this);
+
 
 
     @Override
@@ -24,7 +24,7 @@ public class TimeTable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_table);
 
-        timetableSqliteManager.populateTimetableArrayList();
+
 
         timeTabelListView = findViewById(R.id.timetableListView);
         timetableAdapter = new TimetableAdapter(this, Timetable.timeTableArrayList);
