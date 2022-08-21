@@ -7,14 +7,13 @@ public class Timetable {
     String Day;
 
 
-
+    public static ArrayList<Timetable> timeTableArrayList = new ArrayList<>();
 
 
     String Location;
     String Time1;
     String Time2;
 
-    public static ArrayList<Timetable> timetableArrayList = new ArrayList<>();
 
     public Timetable(int id, String day, String location, String time1, String time2) {
         this.id = id;
@@ -34,13 +33,12 @@ public class Timetable {
     public String getLocation() {
         return Location;
     }
-    public String getTime2() {
-        return Time2;
-    }
     public String getTime1() {
         return Time1;
     }
-
+    public String getTime2() {
+        return Time2;
+    }
 
     //Setters
     public void setId(int id) {

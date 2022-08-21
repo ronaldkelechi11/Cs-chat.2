@@ -17,7 +17,6 @@ import com.bms.cschat.managers.NotesSqliteManager;
 public class Notes extends AppCompatActivity {
     ListView noteListView;
     NoteAdapter noteAdapter;
-    int Counter = 1;
 
 
     @Override
@@ -31,7 +30,6 @@ public class Notes extends AppCompatActivity {
         noteListView.setAdapter(noteAdapter);
 
         onClickListener();
-
     }
 
     private void onClickListener() {
@@ -52,6 +50,5 @@ public class Notes extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-
 
 }

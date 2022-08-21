@@ -176,12 +176,12 @@ public class Browser extends AppCompatActivity{
         @Override
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.INVISIBLE);
+            if(browserSearch.getText().toString().equals(Homepage) || browserSearch.getText().toString().equals("about:blank")){
+                browserSearch.setText("");
+            }
             if(Counter == 1) {
                 browserSearch.setText("");
                 Counter++;
-            }
-            if(browserSearch.getText().toString().equals(Homepage) || browserSearch.getText().toString().equals("about:blank")){
-                browserSearch.setText("");
             }
             else{
                 browserSearch.setText(webView.getUrl());
@@ -189,4 +189,5 @@ public class Browser extends AppCompatActivity{
             super.onPageFinished(view, url);
         }
     }
+    
 }

@@ -17,7 +17,6 @@ public class NewNote extends AppCompatActivity {
     EditText title,description;
     Note selectedNote;
 
-    NotesSqliteManager notesSqliteManager = new NotesSqliteManager(getApplicationContext());
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
 
@@ -78,9 +77,8 @@ public class NewNote extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-
         builder = new AlertDialog.Builder(NewNote.this);
-        builder.setMessage("Are you sure you want to Exit?");
+        builder.setMessage("Are you sure you wish to exit?");
         builder.setCancelable(true);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

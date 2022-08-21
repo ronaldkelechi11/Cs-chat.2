@@ -18,7 +18,7 @@ import java.util.List;
 
 public class TimetableAdapter extends ArrayAdapter<Timetable> {
 
-    public TimetableAdapter(@NonNull Context context, List<Timetable> timetable) {
+    public TimetableAdapter(@NonNull Context context,@NonNull List<Timetable> timetable) {
         super(context, 0, timetable);
     }
 

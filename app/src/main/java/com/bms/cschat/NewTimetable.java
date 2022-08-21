@@ -1,18 +1,23 @@
 package com.bms.cschat;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bms.cschat.classes.Timetable;
+import com.bms.cschat.managers.TimetableSqliteManager;
 
 import java.util.ArrayList;
 
 public class NewTimetable extends AppCompatActivity {
     EditText day,location,time1,time2;
+    AlertDialog alertDialog;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,25 @@ public class NewTimetable extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        //TODO: Add an Alert so that it doesn't happen by mistake
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you wish to exit?");
+        builder.setCancelable(true);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                alertDialog.cancel();
+            }
+        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        alertDialog.cancel();
+                    }
+                });
+        alertDialog = builder.create();
+        alertDialog.show();
         finish();
     }
 
@@ -36,7 +59,7 @@ public class NewTimetable extends AppCompatActivity {
         String locationTxt = location.getText().toString();
         String time1Txt = time1.getText().toString();
         String time2Txt = time2.getText().toString();
-        int id = Timetable.timetableArrayList.size();
+        int id = TimetableSqliteManager.timeTableArrayList.size();
 
         ArrayList<String> days = new ArrayList<>();
 
@@ -86,8 +109,10 @@ public class NewTimetable extends AppCompatActivity {
             return;
         }
 
+        TimetableSqliteManager timetableSqliteManager = TimetableSqliteManager.instanceOfDatabase(this);
         Timetable newTimetable = new Timetable(id,dayTxt,locationTxt,time1Txt,time2Txt);
-        Timetable.timetableArrayList.add(newTimetable);
+        timetableSqliteManager.addTimeTableToDatabase(newTimetable);
+
         Toast.makeText(getApplicationContext(), "New TimeTable Added", Toast.LENGTH_SHORT).show();
         finish();
     }

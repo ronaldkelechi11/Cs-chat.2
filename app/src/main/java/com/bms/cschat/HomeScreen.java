@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bms.cschat.adapters.NewsAdapter;
 import com.bms.cschat.classes.News;
 
+import com.bms.cschat.managers.NotesSqliteManager;
+import com.bms.cschat.managers.TimetableSqliteManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +39,9 @@ public class HomeScreen extends AppCompatActivity{
     ProgressBar progressBar;
     TextView progressBarTextView;
 
+    int Counter = 1;
+    NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
+
 
 
     @Override
@@ -44,10 +49,11 @@ public class HomeScreen extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+
+        notesSqliteManager.populateNoteArrayList();
+
         progressBar = findViewById(R.id.progressBarHomeScreen);
         progressBarTextView = findViewById(R.id.progressBarHomeScreenText);
-
-
 
         //Checking Internet Connection
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -99,9 +105,10 @@ public class HomeScreen extends AppCompatActivity{
         startActivity(n);
     }
     public void lockedFeatures(View view) {
-        Toast.makeText(getApplicationContext(), "Locked Feature wait till futher notice", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Locked Feature wait till further notice", Toast.LENGTH_SHORT).show();
     }
     public void goToTimetable(View view) {
+
         Intent tt = new Intent(getApplicationContext(),TimeTable.class);
         startActivity(tt);
     }
