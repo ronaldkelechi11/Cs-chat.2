@@ -56,43 +56,29 @@ public class HomeScreen extends AppCompatActivity{
         progressBar = findViewById(R.id.progressBarHomeScreen);
         progressBarTextView = findViewById(R.id.progressBarHomeScreenText);
 
-        //Checking Internet Connection
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
-        {
-            progressBar.setVisibility(View.GONE);
-            progressBarTextView.setVisibility(View.GONE);
-        }
-        //If no internet
-        else{
-            progressBar.setVisibility(View.VISIBLE);
-            progressBarTextView.setVisibility(View.VISIBLE);
-        }
-
-        //For News Display Still a lot of work to be done for it to work well
-        newsRecylerView = findViewById(R.id.newsRecyclerView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("News");
-        newsRecylerView.setLayoutManager(new LinearLayoutManager(this));
-
-        newsArrayList = new ArrayList<>();
-        newsAdapter = new NewsAdapter(getApplicationContext(),newsArrayList);
-        newsRecylerView.setAdapter(newsAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    News news = dataSnapshot.getValue(News.class);
-                    newsArrayList.add(news);
-                }
-                newsAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Error Fetching News Updates", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        //For News Display Still a lot of work to be done for it to work well
+//        newsRecylerView = findViewById(R.id.newsRecyclerView);
+//        databaseReference = FirebaseDatabase.getInstance().getReference("News");
+//        newsRecylerView.setLayoutManager(new LinearLayoutManager(HomeScreen.this));
+//
+//        newsArrayList = new ArrayList<>();
+//        newsAdapter = new NewsAdapter(getApplicationContext(),newsArrayList);
+//        newsRecylerView.setAdapter(newsAdapter);
+//
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    News news = dataSnapshot.getValue(News.class);
+//                    newsArrayList.add(news);
+//                }
+//                newsAdapter.notifyDataSetChanged();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getApplicationContext(), "Error Fetching News Updates", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
     }//End of Initial Class
@@ -109,7 +95,6 @@ public class HomeScreen extends AppCompatActivity{
         Toast.makeText(getApplicationContext(), "Locked Feature wait till further notice", Toast.LENGTH_SHORT).show();
     }
     public void goToTimetable(View view) {
-
         Intent tt = new Intent(getApplicationContext(),TimeTable.class);
         startActivity(tt);
     }

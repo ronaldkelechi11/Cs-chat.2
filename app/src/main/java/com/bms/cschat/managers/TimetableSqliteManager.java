@@ -18,7 +18,7 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
 
     private static TimetableSqliteManager timeTableSqliteManger;
 
-    private static final String DATABASE_NAME = "CSDB.db";
+    private static final String DATABASE_NAME = "CSD.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "timetable";
     private static final String COUNTER = "Counter";

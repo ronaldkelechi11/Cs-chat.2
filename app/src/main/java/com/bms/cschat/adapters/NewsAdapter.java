@@ -34,10 +34,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull NewsAdapter.MyViewHolder holder, int position) {
-        News newNews = news.get(position);
-        holder.content.setText(newNews.getContent());
-        holder.reporter.setText(newNews.getReporter());
-        Picasso.get().load(newNews.getImage()).into(holder.contentImage);
+        News n = news.get(position);
+        holder.content.setText(n.getContent());
+        holder.reporter.setText(n.getReporter());
+        Picasso.get().load(n.getImage().trim()).into(holder.contentImage);
     }
 
     @Override
