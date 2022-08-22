@@ -53,7 +53,7 @@ public class NewNote extends AppCompatActivity {
         NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
         String titletxt = title.getText().toString();
         String desctxt = description.getText().toString();
-        int id = NotesSqliteManager.noteArrayList.size();
+        int id = Note.noteArrayList.size();
 
         //FrontEnd Validation
         if(titletxt.isEmpty()){
@@ -65,6 +65,7 @@ public class NewNote extends AppCompatActivity {
         if(selectedNote == null){
             Note newNote = new Note(id,titletxt,desctxt);
             notesSqliteManager.addNoteToDatabase(newNote);
+            Note.noteArrayList.add(newNote);
             Toast.makeText(getApplicationContext(), "Noted Saved", Toast.LENGTH_SHORT).show();
         }
         else{

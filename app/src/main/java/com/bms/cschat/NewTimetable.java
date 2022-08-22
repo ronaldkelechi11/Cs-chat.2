@@ -19,6 +19,7 @@ public class NewTimetable extends AppCompatActivity {
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class NewTimetable extends AppCompatActivity {
     }
 
     public void cancel(View view) {
+
         builder = new AlertDialog.Builder(NewTimetable.this);
         builder.setMessage("Are you sure you wish to exit?");
         builder.setCancelable(true);
@@ -48,9 +50,9 @@ public class NewTimetable extends AppCompatActivity {
                         alertDialog.cancel();
                     }
                 });
+
         alertDialog = builder.create();
         alertDialog.show();
-        finish();
     }
 
     public void saveTimetable(View view) {
@@ -69,6 +71,13 @@ public class NewTimetable extends AppCompatActivity {
         days.add("thursday");
         days.add("friday");
         days.add("saturday");
+
+        days.add("Monday ");
+        days.add("Tuesday ");
+        days.add("Wednesday ");
+        days.add("Thursday ");
+        days.add("Friday ");
+        days.add("Saturday ");
 
         days.add("Monday");
         days.add("Tuesday");

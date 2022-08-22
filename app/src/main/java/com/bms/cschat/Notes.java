@@ -26,7 +26,7 @@ public class Notes extends AppCompatActivity {
 
 
         noteListView = findViewById(R.id.notesListView);
-        noteAdapter = new NoteAdapter(getApplicationContext(), NotesSqliteManager.noteArrayList);
+        noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
         onClickListener();

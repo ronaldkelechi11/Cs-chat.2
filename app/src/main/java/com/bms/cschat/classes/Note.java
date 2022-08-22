@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Note {
 
     public static String NOTE_EDIT_EXTRA = "noteEdit";
+    public static ArrayList<Note> noteArrayList = new ArrayList<>();
 
 
     int id;

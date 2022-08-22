@@ -75,7 +75,7 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
                     String title = result.getString(2);
                     String description = result.getString(3);
                     Note note = new Note(id, title, description);
-                    NotesSqliteManager.noteArrayList.add(note);
+                    Note.noteArrayList.add(note);
                 }
             }
         }
