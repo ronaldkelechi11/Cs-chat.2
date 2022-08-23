@@ -56,29 +56,29 @@ public class HomeScreen extends AppCompatActivity{
         progressBar = findViewById(R.id.progressBarHomeScreen);
         progressBarTextView = findViewById(R.id.progressBarHomeScreenText);
 
-//        //For News Display Still a lot of work to be done for it to work well
-//        newsRecylerView = findViewById(R.id.newsRecyclerView);
-//        databaseReference = FirebaseDatabase.getInstance().getReference("News");
-//        newsRecylerView.setLayoutManager(new LinearLayoutManager(HomeScreen.this));
-//
-//        newsArrayList = new ArrayList<>();
-//        newsAdapter = new NewsAdapter(getApplicationContext(),newsArrayList);
-//        newsRecylerView.setAdapter(newsAdapter);
-//
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    News news = dataSnapshot.getValue(News.class);
-//                    newsArrayList.add(news);
-//                }
-//                newsAdapter.notifyDataSetChanged();
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(getApplicationContext(), "Error Fetching News Updates", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        //For News Display Still a lot of work to be done for it to work well
+        newsRecylerView = findViewById(R.id.newsRecyclerView);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("News");
+        newsRecylerView.setLayoutManager(new LinearLayoutManager(HomeScreen.this));
+
+        newsArrayList = new ArrayList<>();
+        newsAdapter = new NewsAdapter(getApplicationContext(),newsArrayList);
+        newsRecylerView.setAdapter(newsAdapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    News n = dataSnapshot.getValue(News.class);
+                    newsArrayList.add(n);
+                }
+                newsAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "Error Fetching News Updates", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }//End of Initial Class

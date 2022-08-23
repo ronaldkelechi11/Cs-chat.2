@@ -38,8 +38,9 @@
             android:name=".Browser"
             android:exported="false"
             android:parentActivityName=".HomeScreen" />
+<!--        TODO: Change it back to Homescreen-->
         <activity
-            android:name=".HomeScreen"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Login"
@@ -48,7 +49,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

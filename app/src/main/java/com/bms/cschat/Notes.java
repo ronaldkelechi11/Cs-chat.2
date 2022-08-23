@@ -27,7 +27,7 @@ public class Notes extends AppCompatActivity {
         onClickListener();
 
         noteListView = findViewById(R.id.notesListView);
-        noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
+        noteAdapter = new NoteAdapter(Notes.this, Note.noteArrayList);
         noteListView.setAdapter(noteAdapter);
 
 
