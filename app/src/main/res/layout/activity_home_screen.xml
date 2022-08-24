@@ -478,30 +478,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:listitem="@layout/custom_news_item" />
-<!--        -->
-<!--        <ProgressBar-->
-<!--            android:id="@+id/progressBarHomeScreen"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:indeterminateTint="@color/red"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tableLayout2"-->
-<!--            />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/progressBarHomeScreenText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:fontFamily="@font/poppins"-->
-<!--            android:textSize="16sp"-->
-<!--            android:text="News Section has been put on hold"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textColor="@color/red"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/progressBarHomeScreen" />-->
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBarHomeScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/red"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/progressBarHomeScreenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:text="News Section has been put on hold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarHomeScreen" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
