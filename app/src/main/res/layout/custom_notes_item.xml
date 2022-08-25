@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/outlined_box_black"
+    app:strokeColor="@color/blue"
+    app:strokeWidth="2dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
 
@@ -13,10 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_gravity="center_vertical"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/raleway"
         android:singleLine="true"
         android:text="My First Note"
         android:textColor="@color/blue"
         android:textSize="26sp" />
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

@@ -36,6 +36,8 @@
             android:layout_height="60dp"
             android:background="@drawable/outlined_box_blue"
             android:fontFamily="@font/poppins"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/calendar"
             android:hint="Monday"
             android:maxLength="9"
             android:padding="10dp"
@@ -47,12 +49,34 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:id="@+id/timetableCourse"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/outlined_box_blue"
+            android:fontFamily="@font/poppins"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/pencil"
+            android:hint="Course"
+            android:maxLength="15"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/timetableLocation"
+            app:layout_constraintTop_toBottomOf="@+id/timetableDay" />
+
+        <EditText
             android:id="@+id/timetableLocation"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/outlined_box_blue"
             android:fontFamily="@font/poppins"
+            android:drawableStart="@drawable/location"
+            android:drawablePadding="5dp"
             android:hint="Location"
             android:inputType="text"
             android:padding="10dp"
@@ -61,7 +85,7 @@
             android:textColorHint="@color/grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timetableDay" />
+            app:layout_constraintTop_toBottomOf="@+id/timetableCourse"/>
 
 
         <TableRow
@@ -77,6 +101,7 @@
                 android:id="@+id/timetableTime1"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/outlined_box_blue"
@@ -100,6 +125,7 @@
                 android:id="@+id/timetableTime2"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/outlined_box_blue"

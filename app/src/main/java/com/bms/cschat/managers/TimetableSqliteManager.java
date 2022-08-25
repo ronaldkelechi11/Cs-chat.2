@@ -18,7 +18,7 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
 
     private static TimetableSqliteManager timeTableSqliteManger;
 
-    private static final String DATABASE_NAME = "CSD.db";
+    private static final String DATABASE_NAME = "Timetable.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "timetable";
     private static final String COUNTER = "Counter";
@@ -26,6 +26,7 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
 
     private static final String ID_FIELD = "id";
     private static final String DAY_FIELD = "title";
+    private static final String COURSE_FIELD = "course";
     private static final String LOCATION_FIELD = "location";
     private static final String TIME1_FIELD = "time1";
     private static final String TIME2_FILED = "time2";
@@ -49,6 +50,7 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
                         + "(" + COUNTER + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + ID_FIELD + " INT, "
                         + DAY_FIELD + " TEXT, "
+                        + COURSE_FIELD + " TEXT, "
                         + LOCATION_FIELD +  " TEXT, "
                         + TIME1_FIELD + " TEXT, "
                         + TIME2_FILED + " TEXT);" ;
@@ -65,7 +67,8 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(ID_FIELD, timetable.getId());
-        contentValues.put(DAY_FIELD, timetable.getDay());
+        contentValues.put(DAY_FIELD, timetable.getDate());
+        contentValues.put(COURSE_FIELD, timetable.getCourse());
         contentValues.put(LOCATION_FIELD, timetable.getLocation());
         contentValues.put(TIME1_FIELD, timetable.getTime1());
         contentValues.put(TIME2_FILED, timetable.getTime2());
@@ -80,16 +83,19 @@ public class TimetableSqliteManager extends SQLiteOpenHelper {
             if(results.getCount() != 0){
                 while (results.moveToNext()){
                     int id = results.getInt(1);
-                    String day = results.getString(2);
+                    String course = results.getString(2);
                     String location = results.getString(3);
                     String time1 = results.getString(4);
                     String time2 = results.getString(5);
-                    Timetable timetable = new Timetable(id,day,location,time1,time2);
+                    String date = results.getString(6);
+                    Timetable timetable = new Timetable(id,course,location,time1,time2,date);
                     Timetable.timeTableArrayList.add(timetable);
                     break;
                 }
             }
         }
     }
+
+
 
 }

@@ -35,7 +35,7 @@
             android:padding="5dp"
             android:layout_marginTop="10dp"
             android:divider="@android:color/transparent"
-            android:dividerHeight="10dp"
+            android:dividerHeight="5dp"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
             android:scrollbarSize="3dp"

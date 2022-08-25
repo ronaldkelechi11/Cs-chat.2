@@ -1,62 +1,65 @@
 package com.bms.cschat.classes;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 
 public class Timetable {
-    int id;
-    String Day;
-
 
     public static ArrayList<Timetable> timeTableArrayList = new ArrayList<>();
 
+    int id;
+   String course;
+   String location;
+   String time1;
+   String time2;
+   String date;
 
-    String Location;
-    String Time1;
-    String Time2;
-
-
-    public Timetable(int id, String day, String location, String time1, String time2) {
+    public Timetable(int id, String course, String location, String time1, String time2, String date) {
         this.id = id;
-        this.Day = day;
-        this.Location = location;
-        this.Time1 = time1;
-        this.Time2 = time2;
+        this.course = course;
+        this.location = location;
+        this.time1 = time1;
+        this.time2 = time2;
+        this.date = date;
     }
 
     //Getters
     public int getId() {
         return id;
     }
-    public String getDay() {
-        return Day;
+    public String getDate() {
+        return date;
+    }
+    public String getCourse() {
+        return course;
     }
     public String getLocation() {
-        return Location;
+        return location;
     }
     public String getTime1() {
-        return Time1;
+        return time1;
     }
     public String getTime2() {
-        return Time2;
+        return time2;
     }
 
     //Setters
     public void setId(int id) {
         this.id = id;
     }
+    public void setCourse(String course) {
+        this.course = course;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
     public void setLocation(String location) {
-        Location = location;
-    }
-    public void setDay(String day) {
-        Day = day;
-    }
-    public void setTime1(String time) {
-        Time1 = time;
+        this.location = location;
     }
     public void setTime2(String time2) {
-        Time2 = time2;
+        this.time2 = time2;
     }
-
-
-
+    public void setTime1(String time1) {
+        this.time1 = time1;
+    }
 }

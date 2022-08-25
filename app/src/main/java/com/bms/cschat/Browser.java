@@ -172,13 +172,12 @@ public class Browser extends AppCompatActivity{
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             progressBar.setVisibility(View.VISIBLE);
             super.onPageStarted(view, url, favicon);
+            refreshLayout.setRefreshing(true);
         }
         @Override
         public void onPageFinished(WebView view, String url) {
             progressBar.setVisibility(View.INVISIBLE);
-            if(browserSearch.getText().toString().equals(Homepage) || browserSearch.getText().toString().equals("about:blank")){
-                browserSearch.setText("");
-            }
+            refreshLayout.setRefreshing(false);
             if(Counter == 1) {
                 browserSearch.setText("");
                 Counter++;

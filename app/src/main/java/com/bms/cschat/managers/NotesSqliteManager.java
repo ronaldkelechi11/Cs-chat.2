@@ -17,7 +17,7 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
 
     private static NotesSqliteManager notesSqliteManager;
 
-    private static final String DATABASE_NAME = "CSDB.db";
+    private static final String DATABASE_NAME = "Notes.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "note";
     private static final String COUNTER = "Counter";

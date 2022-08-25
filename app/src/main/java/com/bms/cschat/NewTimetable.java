@@ -15,7 +15,12 @@ import com.bms.cschat.managers.TimetableSqliteManager;
 import java.util.ArrayList;
 
 public class NewTimetable extends AppCompatActivity {
-    EditText day,location,time1,time2;
+    EditText day;
+    EditText course;
+    EditText location;
+    EditText time1;
+    EditText time2;
+
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
 
@@ -26,6 +31,7 @@ public class NewTimetable extends AppCompatActivity {
         setContentView(R.layout.activity_new_timetable);
 
         day = findViewById(R.id.timetableDay);
+        course = findViewById(R.id.timetableCourse);
         location = findViewById(R.id.timetableLocation);
         time1 = findViewById(R.id.timetableTime1);
         time2 = findViewById(R.id.timetableTime2);
@@ -56,12 +62,14 @@ public class NewTimetable extends AppCompatActivity {
     }
 
     public void saveTimetable(View view) {
-        //Convert to String
+        //Declare Variable to String
+        int id = TimetableSqliteManager.timeTableArrayList.size();
         String dayTxt = day.getText().toString();
+        String courseTxt = course.getText().toString();
         String locationTxt = location.getText().toString();
         String time1Txt = time1.getText().toString();
         String time2Txt = time2.getText().toString();
-        int id = TimetableSqliteManager.timeTableArrayList.size();
+
 
         ArrayList<String> days = new ArrayList<>();
 
@@ -92,6 +100,11 @@ public class NewTimetable extends AppCompatActivity {
            day.requestFocus();
            return;
         }
+        if(courseTxt.isEmpty()){
+            course.setError("Course can't be empty");
+            course.requestFocus();
+            return;
+        }
         if(locationTxt.isEmpty()){
             location.setError("Location cannot be Blank");
             location.requestFocus();
@@ -119,7 +132,7 @@ public class NewTimetable extends AppCompatActivity {
         }
 
         TimetableSqliteManager timetableSqliteManager = TimetableSqliteManager.instanceOfDatabase(this);
-        Timetable newTimetable = new Timetable(id,dayTxt,locationTxt,time1Txt,time2Txt);
+        Timetable newTimetable = new Timetable(id,courseTxt,locationTxt,time1Txt,time2Txt,dayTxt);
 
         timetableSqliteManager.addTimeTableToDatabase(newTimetable);
         Timetable.timeTableArrayList.add(newTimetable);
@@ -127,6 +140,7 @@ public class NewTimetable extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "New TimeTable Added", Toast.LENGTH_SHORT).show();
         finish();
+
     }
 
 }

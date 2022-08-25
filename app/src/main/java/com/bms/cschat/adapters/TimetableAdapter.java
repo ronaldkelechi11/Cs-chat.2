@@ -30,11 +30,13 @@ public class TimetableAdapter extends ArrayAdapter<Timetable> {
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_timetable_item,parent,false);
 
         TextView day = convertView.findViewById(R.id.date);
+        TextView course = convertView.findViewById(R.id.course);
         TextView location = convertView.findViewById(R.id.location);
         TextView time1 = convertView.findViewById(R.id.time1);
         TextView time2 = convertView.findViewById(R.id.time2);
 
-        day.setText(timetable.getDay());
+        day.setText(timetable.getDate());
+        course.setText(timetable.getCourse());
         location.setText(timetable.getLocation());
         time1.setText(timetable.getTime1());
         time2.setText(timetable.getTime2());

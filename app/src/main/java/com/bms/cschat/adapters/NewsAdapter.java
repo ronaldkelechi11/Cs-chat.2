@@ -40,11 +40,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         Picasso.get().load(n.getImage().trim()).into(holder.contentImage);
     }
 
+
     @Override
     public int getItemCount() {
         return news.size();
     }
 
+    // Handles ViewHolder for Recycler View
     public class MyViewHolder extends RecyclerView.ViewHolder{
             TextView content,reporter;
             ImageView contentImage;
