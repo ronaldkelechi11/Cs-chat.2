@@ -50,12 +50,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder{
             TextView content,reporter;
             ImageView contentImage;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             content = itemView.findViewById(R.id.newsContent);
             reporter = itemView.findViewById(R.id.newsReporter);
             contentImage = itemView.findViewById(R.id.newsImage);
         }
     }
+
+
 }

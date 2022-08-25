@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/outlined_box_grey"
     android:paddingHorizontal="20dp"
-    android:paddingVertical="10dp"
-    android:background="@drawable/outlined_box_grey">
+    android:paddingVertical="10dp">
 
     <TextView
         android:id="@+id/course"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:drawableStart="@drawable/pencil"
+        android:drawablePadding="10dp"
         android:fontFamily="@font/poppins"
         android:singleLine="true"
         android:text="GST 101"
@@ -25,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/location"
+        android:drawablePadding="10dp"
         android:textColor="@color/red"
         android:textSize="16sp"
         android:text="East Hall"
@@ -36,13 +40,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
+        android:drawableEnd="@drawable/calendar"
+        android:drawablePadding="5dp"
         android:text="Monday"
         android:textColor="@color/blue"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
+        android:drawableStart="@drawable/time"
+        android:drawablePadding="10dp"
         android:id="@+id/time1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,8 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:fontFamily="@font/poppins"
-        android:text=":"
-        android:textColor="@color/red"
+        android:text="to"
+        android:textColor="@color/grey"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/time1" />
