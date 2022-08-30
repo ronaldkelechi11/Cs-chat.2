@@ -7,10 +7,27 @@
     <color name="teal_700">#FF018786</color>
 
 
-<!--M y custom Colors for the project-->
+<!--My custom Colors for the project-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#271863</color>
     <color name="grey">#848484</color>
     <color name="red">#FF0000</color>
+
+<!-- Extra Colours added from Favour-->
+    <color name="primary1">#0F149A</color>
+    <color name="primary2">#131AC8</color>
+    <color name="primary3">#252CEA</color>
+    <color name="primary4">#5359EE</color>
+    <color name="primary5">#8286F3</color>
+
+    <color name="secondary1">#FD9B4D</color>
+    <color name="secondary2">#FEB881</color>
+    <color name="secondary3">#FED5B3</color>
+    <color name="secondary4">#FFF1E6</color>
+    <color name="secondary5">#EB9D5F</color>
+
+    <color name="grey1">#CCCCCC</color>
+    <color name="grey2">#E6E6E6</color>
+
 </resources>
