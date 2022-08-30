@@ -11,5 +11,6 @@
     <string name="login_txt">Welcome back, we missed you</string>
     <string name="redirect_log">Don\'t have an account?</string>
     <string name="redirect_log2">Register Here</string>
+    <string name="fill_in_the_details_below">Fill in the details below</string>
 
 </resources>

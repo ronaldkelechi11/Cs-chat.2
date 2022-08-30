@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
 
 
-<!--My custom Colors for the project-->
+<!--My old custom Colors for the project-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#271863</color>
@@ -26,6 +26,12 @@
     <color name="secondary3">#FED5B3</color>
     <color name="secondary4">#FFF1E6</color>
     <color name="secondary5">#EB9D5F</color>
+
+    <color name="black1">#0F0F0F</color>
+    <color name="black2">#2A2828</color>
+    <color name="black3">#444141</color>
+    <color name="black4">#5E5A5A</color>
+    <color name="black5">#787272</color>
 
     <color name="grey1">#CCCCCC</color>
     <color name="grey2">#E6E6E6</color>

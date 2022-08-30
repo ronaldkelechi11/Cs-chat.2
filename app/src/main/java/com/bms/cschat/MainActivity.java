@@ -25,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
     public void goToLogin(View view) {
         Intent l = new Intent(getApplicationContext(), Login.class);
         startActivity(l);
+        finish();
     }
 
     public void gotoRegister(View view) {
         Intent i = new Intent(getApplicationContext(), Register.class);
         startActivity(i);
+        finish();
     }
 }
