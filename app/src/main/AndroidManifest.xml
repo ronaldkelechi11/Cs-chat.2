@@ -38,7 +38,6 @@
             android:name=".Browser"
             android:exported="false"
             android:parentActivityName=".HomeScreen" />
-<!--        TODO: Change it back to Homescreen-->
         <activity
             android:name=".HomeScreen"
             android:exported="false" />
