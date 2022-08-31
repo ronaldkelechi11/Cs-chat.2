@@ -1,46 +1,53 @@
 package com.bms.cschat;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Patterns;
+import android.text.InputType;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-import com.bms.cschat.classes.User;
+import android.widget.ImageView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class Register extends AppCompatActivity {
-    ConstraintLayout toLogin;
-    EditText nickname,email,password;
-    Button registerButton;
-    ProgressBar progressBar;
-    FirebaseAuth  mAuth;
-
-    SharedPreferences myPref;
-    SharedPreferences.Editor myPrefeditor;
-    private static final String SHARED_PREFERNCE_NAME = "mySharedPreferences";
-    private  static final String KEY = "default";//Default is the default value
-
-
+    EditText nameEditText,emailEditText,numberEditText,passwordEditText,cpasswordEditText;
+    ImageView passwordToggle1,passwordToggle2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-    }
+        //EditText Fields
+        nameEditText = findViewById(R.id.nameEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        numberEditText = findViewById(R.id.phoneEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        cpasswordEditText = findViewById(R.id.cpasswordEditText);
+
+        //ImageView Fields
+        passwordToggle1 = findViewById(R.id.password_toggle1);
+        passwordToggle2 = findViewById(R.id.password_toggle2);
+
+        // First check the type that is there then changes it to it's opposite
+        passwordToggle1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              boolean isPasswordType = passwordEditText.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD;
+              if(isPasswordType){
+                  passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                  passwordToggle1.setImageResource(R.drawable.closed_eye);
+              }
+              if(!isPasswordType){
+                  passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                  passwordToggle1.setImageResource(R.drawable.open_eye);
+              }
+            }
+        });
+
+
+    }// End of initial class
     public void goToMain(View view) {
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
