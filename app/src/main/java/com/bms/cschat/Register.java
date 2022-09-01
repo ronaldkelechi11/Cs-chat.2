@@ -2,11 +2,9 @@ package com.bms.cschat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.telephony.PhoneNumberFormattingTextWatcher;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,19 +43,18 @@ public class Register extends AppCompatActivity {
         passwordToggle1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             boolean isPassword = passwordEditText.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD;
-                if (isPassword) {
-                    Toast.makeText(getApplicationContext(), "Password is Hidden", Toast.LENGTH_SHORT).show();
-                    passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passwordToggle1.setImageResource(R.drawable.open_eye);
-                }
-                if(!isPassword){
-                    Toast.makeText(getApplicationContext(), "Password is not Hidden", Toast.LENGTH_SHORT).show();
-                    passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                if(passwordEditText.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     passwordToggle1.setImageResource(R.drawable.closed_eye);
+                }
+                else{
+                    passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    passwordToggle1.setImageResource(R.drawable.open_eye);
                 }
             }
         });
+
+
 
 
     }// End of initial class
