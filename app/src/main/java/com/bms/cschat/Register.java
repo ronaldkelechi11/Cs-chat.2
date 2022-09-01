@@ -71,6 +71,7 @@ public class Register extends AppCompatActivity {
 
 
     }// End of initial class
+
     public void goToMain(View view) {
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
@@ -78,5 +79,10 @@ public class Register extends AppCompatActivity {
 
     public void goToHomeScreen(View view) {
         Toast.makeText(getApplicationContext(), numberEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void toLogin(View view) {
+        Intent tl = new Intent(getApplicationContext(),Login.class);
+        startActivity(tl);
     }
 }
