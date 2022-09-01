@@ -7,9 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -19,21 +19,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cschat">
         <activity
+            android:name=".UploadUserImage"
+            android:exported="false" />
+        <activity
             android:name=".NewTimetable"
             android:exported="false"
-            android:parentActivityName=".TimeTable"/>
+            android:parentActivityName=".TimeTable" />
         <activity
             android:name=".TimeTable"
             android:exported="false"
-            android:parentActivityName=".HomeScreen"/>
+            android:parentActivityName=".HomeScreen" />
         <activity
             android:name=".NewNote"
             android:exported="false"
-            android:parentActivityName=".Notes"/>
+            android:parentActivityName=".Notes" />
         <activity
             android:name=".Notes"
             android:exported="false"
-            android:parentActivityName=".HomeScreen"/>
+            android:parentActivityName=".HomeScreen" />
         <activity
             android:name=".Browser"
             android:exported="false"
