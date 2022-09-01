@@ -77,8 +77,9 @@ public class Register extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void goToHomeScreen(View view) {
-        Toast.makeText(getApplicationContext(), numberEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+    public void goToUploadProfilePic(View view) {
+        Intent t = new Intent(getApplicationContext(),UploadUserImage.class);
+        startActivity(t);
     }
 
     public void toLogin(View view) {
