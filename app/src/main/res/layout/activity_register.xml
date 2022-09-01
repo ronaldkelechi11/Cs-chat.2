@@ -63,7 +63,7 @@
             android:inputType="textPersonName"
             android:paddingHorizontal="10dp"
             android:singleLine="true"
-            android:textColor="@color/black5"
+            android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
 
         <Space
@@ -82,7 +82,7 @@
             android:inputType="textEmailAddress"
             android:paddingHorizontal="10dp"
             android:singleLine="true"
-            android:textColor="@color/black5"
+            android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
 
         <Space
@@ -99,7 +99,7 @@
             android:inputType="phone"
             android:paddingHorizontal="30dp"
             android:singleLine="true"
-            android:textColor="@color/black5"
+            android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
 
         <Space
@@ -127,7 +127,7 @@
                 android:background="@android:color/transparent"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textColor="@color/black5"
+                android:textColor="@color/black1"
                 android:textColorHint="@color/black5" />
         </TableRow>
         <Space
@@ -156,7 +156,7 @@
                 android:background="@android:color/transparent"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textColor="@color/black5"
+                android:textColor="@color/black1"
                 android:textColorHint="@color/black5" />
         </TableRow>
 
