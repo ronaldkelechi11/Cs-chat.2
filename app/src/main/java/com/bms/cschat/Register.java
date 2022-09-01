@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity {
         // To format the code the number to be Nigerian Number Format
         numberEditText.addTextChangedListener(new PhoneNumberFormattingTextWatcher("NG"));
 
-        // First check the type that is there then changes it to it's opposite
+        // For the password toggle
         passwordToggle1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +54,20 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
+        // For the confirm Password Toggle
+        passwordToggle2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cpasswordEditText.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    cpasswordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    passwordToggle2.setImageResource(R.drawable.closed_eye);
+                }
+                else{
+                    cpasswordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    passwordToggle2.setImageResource(R.drawable.open_eye);
+                }
+            }
+        });
 
 
     }// End of initial class
@@ -64,6 +77,6 @@ public class Register extends AppCompatActivity {
     }
 
     public void goToHomeScreen(View view) {
-        Toast.makeText(getApplicationContext(), "You clicked Sign Up", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), numberEditText.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 }
