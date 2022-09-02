@@ -5,5 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Notes">
+    <ImageView
+        android:id="@+id/registerBack"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:cropToPadding="true"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Make a Note"
+        android:textAllCaps="true"
+        android:textColor="@color/primary3"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerBack" />
+
+    <EditText
+        android:id="@+id/searchNoteEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/box_grey_note"
+        android:gravity="center_vertical"
+        android:hint="Search Note"
+        android:padding="10dp"
+        android:textColorHint="@color/grey1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/notesFab"
+        android:onClick="goToNewNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:elevation="0dp"
+        android:foreground="@drawable/add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/notesListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layoutAnimation="@android:anim/slide_in_left"
+        android:dividerHeight="0dp"
+        android:divider="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchNoteEditText"
+        tools:listitem="@layout/custom_notes_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

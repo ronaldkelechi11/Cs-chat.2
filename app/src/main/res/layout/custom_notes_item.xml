@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="80dp"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/outlined_box_black"
-    app:strokeColor="@color/blue"
-    app:strokeWidth="2dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    >
 
     <TextView
-        android:id="@+id/noteTitle"
+        android:id="@+id/noteItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="center_vertical"
-        android:fontFamily="@font/raleway"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/roboto"
         android:singleLine="true"
-        android:text="My First Note"
-        android:textColor="@color/blue"
-        android:textSize="26sp" />
+        android:text="CHM 101"
+        android:textColor="@color/black3"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/noteItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:singleLine="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="50dp"
+        android:text="August 12, 2022 07:16 PM"
+        android:textColor="@color/grey1"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteItemTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
