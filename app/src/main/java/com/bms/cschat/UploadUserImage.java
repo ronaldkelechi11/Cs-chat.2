@@ -61,7 +61,6 @@ public class UploadUserImage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     public void goToMain(View view) {
         builder = new AlertDialog.Builder(UploadUserImage.this);
         builder.setCancelable(true);

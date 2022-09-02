@@ -32,7 +32,8 @@ public class Login extends AppCompatActivity{
     EditText fullNameEditText,passwordEditText;
     ImageView passwordToogle;
     CardView loginButton;
-    TextView forgottenPassword, dontHaveAccount;
+    TextView forgottenPassword;
+    ConstraintLayout  dontHaveAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +81,6 @@ public class Login extends AppCompatActivity{
                 Toast.makeText(getApplicationContext(), fullNameEditText.getText().toString() + " " + passwordEditText.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
 
     }//End of initial Class
 
