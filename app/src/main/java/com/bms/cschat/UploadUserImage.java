@@ -1,9 +1,11 @@
 package com.bms.cschat;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,9 @@ public class UploadUserImage extends AppCompatActivity {
 
     private static int PICK_IMAGE = 123;
     private Uri imagePath;
+
+    AlertDialog alertDialog;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class UploadUserImage extends AppCompatActivity {
 
     }
 
+    //Surrrounded activity result with try-catch statement to be on the safe side
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         try {
@@ -51,12 +57,29 @@ public class UploadUserImage extends AppCompatActivity {
         catch (Exception e){
             Toast.makeText(getApplicationContext(), "Image add error", Toast.LENGTH_SHORT).show();
         }
-        //TODO: Add circle Image dependency
+        //TODO: Add circular Image dependency
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+
     public void goToMain(View view) {
-        // TODO: Remove the toast below
-        Toast.makeText(getApplicationContext(), "Back to SignUp", Toast.LENGTH_SHORT).show();
+        builder = new AlertDialog.Builder(UploadUserImage.this);
+        builder.setCancelable(true);
+        builder.setMessage("Are you sure you want to exit your information is not yet saved ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                alertDialog.cancel();
+            }
+        })
+        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                alertDialog.cancel();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 }

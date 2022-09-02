@@ -20,6 +20,7 @@
         android:theme="@style/Theme.Cschat">
         <activity
             android:name=".UploadUserImage"
+            android:theme="@style/Theme.Cschat.white"
             android:exported="false" />
         <activity
             android:name=".NewTimetable"

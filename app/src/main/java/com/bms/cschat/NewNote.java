@@ -91,7 +91,6 @@ public class NewNote extends AppCompatActivity {
         .setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 alertDialog.cancel();
             }
         });
