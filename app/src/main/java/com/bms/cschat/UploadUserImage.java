@@ -18,6 +18,7 @@ public class UploadUserImage extends AppCompatActivity {
     private ImageView uploadImage;
     private CardView uploadButton;
 
+
     private static int PICK_IMAGE = 123;
     private Uri imagePath;
 
