@@ -52,6 +52,7 @@
             android:id="@+id/uploadImage"
             android:clickable="true"
             android:layout_width="170dp"
+            android:backgroundTint="@color/grey2"
             android:layout_height="170dp"
             android:src="@drawable/new_user_placeholder"
             android:cropToPadding="true"
