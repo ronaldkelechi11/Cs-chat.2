@@ -1,18 +1,25 @@
 package com.bms.cschat.classes;
 
 public class User {
+    String name;
     String email;
-    String nickname;
+    String phoneNumber;
+    String Password;
 
-    public User(String email, String nickname) {
+    public User(String name, String email, String phoneNumber, String password) {
+        this.name = name;
         this.email = email;
-        this.nickname = nickname;
-    }
-    public User(){
-
+        this.phoneNumber = phoneNumber;
+        Password = password;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;
@@ -22,14 +29,19 @@ public class User {
         this.email = email;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
+    public String getPassword() {
+        return Password;
+    }
 
-
+    public void setPassword(String password) {
+        Password = password;
+    }
 }

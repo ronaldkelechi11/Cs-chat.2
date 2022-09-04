@@ -50,13 +50,13 @@
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
             android:id="@+id/uploadImage"
-            android:clickable="true"
             android:layout_width="170dp"
-            android:backgroundTint="@color/grey2"
             android:layout_height="170dp"
-            android:src="@drawable/new_user_placeholder"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/grey2"
+            android:clickable="true"
             android:cropToPadding="true"
-            android:layout_gravity="center"/>
+            android:src="@drawable/new_user_placeholder" />
     </androidx.cardview.widget.CardView>
 
     <TextView

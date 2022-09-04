@@ -65,12 +65,8 @@
             android:singleLine="true"
             android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
         <EditText
+            android:layout_marginTop="15dp"
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -84,12 +80,8 @@
             android:singleLine="true"
             android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
         <EditText
+            android:layout_marginTop="15dp"
             android:id="@+id/phoneEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -101,11 +93,8 @@
             android:singleLine="true"
             android:textColor="@color/black1"
             android:textColorHint="@color/black5" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
         <TableRow
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/box_details"
@@ -115,7 +104,7 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@drawable/open_eye"
+            android:src="@drawable/closed_eye"
             />
             <EditText
                 android:id="@+id/passwordEditText"
@@ -130,11 +119,9 @@
                 android:textColor="@color/black1"
                 android:textColorHint="@color/black5" />
         </TableRow>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-        <TableRow
 
+        <TableRow
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/box_details"
@@ -144,7 +131,7 @@
                 android:padding="10dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:src="@drawable/open_eye"
+                android:src="@drawable/closed_eye"
                 />
             <EditText
                 android:id="@+id/cpasswordEditText"
@@ -211,7 +198,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:onClick="toLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4">
@@ -246,10 +233,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ProgressBar
+        android:id="@+id/progressBarReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/secondary1"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
