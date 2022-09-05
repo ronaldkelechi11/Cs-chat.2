@@ -37,10 +37,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="-120dp"
-        android:clickable="false"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-180dp"
         app:cardBackgroundColor="@color/color9"
         app:cardCornerRadius="300dp"
         app:cardElevation="0dp"
@@ -48,14 +47,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/uploadImage"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:backgroundTint="@color/grey2"
-            android:clickable="true"
+            android:layout_gravity="center"
             android:cropToPadding="true"
+            android:scaleType="centerInside"
             android:src="@drawable/new_user_placeholder" />
     </androidx.cardview.widget.CardView>
 

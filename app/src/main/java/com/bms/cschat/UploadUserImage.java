@@ -1,5 +1,6 @@
 package com.bms.cschat;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,13 +15,31 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bms.cschat.classes.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class UploadUserImage extends AppCompatActivity {
     private ImageView uploadImage;
     private CardView uploadButton;
 
+    String PASSED_NAME = "name";
+    String PASSED_EMAIL = "email";
+    String PASSED_NUMBER = "number";
+    String PASSED_PASSWORD = "passwprd";
+
 
     private static final int PICK_IMAGE = 123;
     private Uri imagePath;
+
+    FirebaseAuth mAuth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
 
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
@@ -54,6 +73,9 @@ public class UploadUserImage extends AppCompatActivity {
                 imagePath = data.getData();
                 uploadImage.setImageURI(imagePath);
                 Toast.makeText(getApplicationContext(), "Image Added Successfully", Toast.LENGTH_SHORT).show();
+                if(imagePath != null){
+                    createNewUser();
+                }
             }
         }
         catch (Exception e){
@@ -63,6 +85,49 @@ public class UploadUserImage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+
+
+    private void createNewUser() {
+        Intent intent = getIntent();
+        String name = intent.getStringExtra(PASSED_NAME);
+        String email = intent.getStringExtra(PASSED_EMAIL);
+        String phone = intent.getStringExtra(PASSED_NUMBER);
+        String password = intent.getStringExtra(PASSED_PASSWORD);
+
+        User user = new User(name,email,phone);
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users").child(mAuth.getCurrentUser().getUid());
+
+
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            databaseReference.setValue(user)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                Intent tHome = new Intent(getApplicationContext(),HomeScreen.class);
+                                                startActivity(tHome);
+                                                Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Login Un-Successful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+        //Just to text if it, passed not to sure
+        Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_SHORT).show();
+    }
 
 
     public void goToMain(View view) {

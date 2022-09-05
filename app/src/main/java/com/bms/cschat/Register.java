@@ -25,10 +25,10 @@ public class Register extends AppCompatActivity {
     ImageView passwordToggle1,passwordToggle2;
     ProgressBar progressBar;
 
-    private static String PASSED_NAME = "name";
-    private static String PASSED_EMAIL = "email";
-    private static String PASSED_NUMBER = "number";
-    private static String PASSED_PASSWORD = "passwprd";
+    String PASSED_NAME = "name";
+    String PASSED_EMAIL = "email";
+    String PASSED_NUMBER = "number";
+    String PASSED_PASSWORD = "passwprd";
 
 
     @Override
