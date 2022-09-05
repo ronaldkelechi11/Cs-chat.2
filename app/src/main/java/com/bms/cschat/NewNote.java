@@ -1,17 +1,11 @@
 package com.bms.cschat;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.bms.cschat.classes.Note;
-import com.bms.cschat.managers.NotesSqliteManager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NewNote extends AppCompatActivity {
     AlertDialog dialog;
@@ -21,6 +15,8 @@ public class NewNote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
+
+        //TODO: ADD NOTE SAVED DRAWABLE ITEM
 
     }
 

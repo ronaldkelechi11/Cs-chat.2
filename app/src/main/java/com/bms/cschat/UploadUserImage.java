@@ -19,7 +19,7 @@ public class UploadUserImage extends AppCompatActivity {
     private CardView uploadButton;
 
 
-    private static int PICK_IMAGE = 123;
+    private static final int PICK_IMAGE = 123;
     private Uri imagePath;
 
     AlertDialog alertDialog;
@@ -41,9 +41,10 @@ public class UploadUserImage extends AppCompatActivity {
             }
         });
 
-    }
 
-    //Surrrounded activity result with try-catch statement to be on the safe side
+    }//End of Initial Class
+
+    //Surrounded activity result with try-catch statement to be on the safe side
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         try {
@@ -61,6 +62,8 @@ public class UploadUserImage extends AppCompatActivity {
         //TODO: Add circular Image dependency
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 
     public void goToMain(View view) {
         builder = new AlertDialog.Builder(UploadUserImage.this);
@@ -82,4 +85,6 @@ public class UploadUserImage extends AppCompatActivity {
         alertDialog = builder.create();
         alertDialog.show();
     }
+
+
 }
