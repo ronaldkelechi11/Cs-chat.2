@@ -37,26 +37,25 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="-180dp"
         app:cardBackgroundColor="@color/color9"
         app:cardCornerRadius="300dp"
+        android:foregroundGravity="center"
+        android:foreground="@drawable/new_user_placeholder"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
             android:id="@+id/uploadImage"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/grey2"
             android:layout_gravity="center"
-            android:cropToPadding="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/new_user_placeholder" />
+            android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
 
     <TextView

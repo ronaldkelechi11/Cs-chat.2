@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:layout_height="50dp"
         android:background="@drawable/box_grey_note"
-        android:textColor="@color/grey"
+        android:textColor="@color/black5"
         android:textColorHint="@color/grey1"
         android:hint="@string/search_note"
         android:imeOptions="actionSearch"

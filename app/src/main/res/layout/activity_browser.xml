@@ -31,7 +31,7 @@
             android:inputType="textUri"
             android:singleLine="true"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/grey1"
             android:textSize="14sp"
             android:paddingTop="1dp"
             android:drawableStart="@drawable/google_img"
