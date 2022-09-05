@@ -13,5 +13,6 @@
     <string name="redirect_log2">Register Here</string>
     <string name="fill_in_the_details_below">Fill in the details below</string>
     <string name="user_profile">You\'re almost setup, just upload a profile picture to get started</string>
+    <string name="search_note">Search Note</string>
 
 </resources>

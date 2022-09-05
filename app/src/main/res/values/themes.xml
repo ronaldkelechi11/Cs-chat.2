@@ -9,7 +9,8 @@
         <item name="colorSecondary">@color/secondary1</item>
         <item name="colorSecondaryVariant">@color/secondary2</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+
+        <!-- Status bar color. the orange status bar color-->
         <item name="android:statusBarColor" tools:targetApi="l">@color/secondary4</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
