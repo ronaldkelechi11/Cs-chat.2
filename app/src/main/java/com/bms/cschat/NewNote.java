@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bms.cschat.classes.Note;
+import com.bms.cschat.managers.NotesSqliteManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class NewNote extends AppCompatActivity {
     AlertDialog.Builder builder;
 
     EditText titleEditText,descriptionEditText;
+    NotesSqliteManager notesSqliteManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,9 @@ public class NewNote extends AppCompatActivity {
 
         titleEditText = findViewById(R.id.titleNewNote);
         descriptionEditText = findViewById(R.id.descriptionNewNote);
+
+        notesSqliteManager = new NotesSqliteManager(this);
+        notesSqliteManager.populateNoteArrayList();
 
     }//End Of Initial Class
 
@@ -63,7 +68,6 @@ public class NewNote extends AppCompatActivity {
         String descriptiontxt = descriptionEditText.getText().toString();
         String theDate = dateFormat.format(date);
 
-
         //Some Validation only for the title
         if(titletxt.isEmpty()){
             titleEditText.setError("Field cannot be empty");
@@ -71,8 +75,10 @@ public class NewNote extends AppCompatActivity {
             return;
         }
         try{
+            NotesSqliteManager notesSqliteManager1 = new NotesSqliteManager(this);
             Note note = new Note(id,titletxt,descriptiontxt,theDate);
             Note.noteArrayList.add(note);
+            notesSqliteManager1.addNoteToDatabase(note);
             Toast.makeText(getApplicationContext(), "Note Added successfully", Toast.LENGTH_SHORT).show();
             finish();
         }

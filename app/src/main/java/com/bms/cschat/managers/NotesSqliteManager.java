@@ -75,12 +75,10 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
         try (Cursor result = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null)) {
             if (result.getCount() != 0) {
                 while (result.moveToNext()) {
-
                     int id = result.getInt(1);
                     String title = result.getString(2);
                     String description = result.getString(3);
                     String date = result.getString(4);
-
                     Note note = new Note(id,title,description,date);
                     Note.noteArrayList.add(note);
                 }
@@ -98,6 +96,11 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
         contentValues.put(DATE_FIELD, note.getDate());
 
         sqLiteDatabase.update(TABLE_NAME, contentValues, ID_FIELD + " =? ", new String[]{String.valueOf(note.getId())});
+    }
+
+    //Delete Note Method
+    public void deleteNoteInDb(Note note){
+
     }
 
 }
