@@ -3,22 +3,32 @@ package com.bms.cschat;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bms.cschat.classes.Note;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NewNote extends AppCompatActivity {
     AlertDialog dialog;
     AlertDialog.Builder builder;
+
+    EditText titleEditText,descriptionEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
 
-        //TODO: ADD NOTE SAVED DRAWABLE ITEM
+        titleEditText = findViewById(R.id.titleNewNote);
+        descriptionEditText = findViewById(R.id.descriptionNewNote);
 
-    }
+    }//End Of Initial Class
 
     public void goToNotes(View view) {
         builder = new AlertDialog.Builder(NewNote.this);
@@ -39,5 +49,35 @@ public class NewNote extends AppCompatActivity {
         });
         dialog = builder.create();
         dialog.show();
+    }
+
+    public void saveNote(View view) {
+        // To get Date
+        Date date = new Date();
+        String myDateFormat = "MMMM dd, yyyy hh:mm a";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myDateFormat);
+
+
+        int id = Note.noteArrayList.size();
+        String titletxt = titleEditText.getText().toString();
+        String descriptiontxt = descriptionEditText.getText().toString();
+        String theDate = dateFormat.format(date);
+
+
+        //Some Validation only for the title
+        if(titletxt.isEmpty()){
+            titleEditText.setError("Field cannot be empty");
+            titleEditText.requestFocus();
+            return;
+        }
+        try{
+            Note note = new Note(id,titletxt,descriptiontxt,theDate);
+            Note.noteArrayList.add(note);
+            Toast.makeText(getApplicationContext(), "Note Added successfully", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Note could not add successfully", Toast.LENGTH_SHORT).show();
+        }
     }
 }

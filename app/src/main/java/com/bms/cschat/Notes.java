@@ -10,6 +10,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bms.cschat.adapters.NoteAdapter;
+import com.bms.cschat.classes.Note;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
@@ -20,6 +22,7 @@ public class Notes extends AppCompatActivity {
     FloatingActionButton fab;
     EditText searchNotes;
     ListView notesListView;
+    NoteAdapter noteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class Notes extends AppCompatActivity {
         searchNotes = findViewById(R.id.searchNoteEditText);
         notesListView = findViewById(R.id.notesListView);
 
+        noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
+        notesListView.setAdapter(noteAdapter);
 
         //To hide FAB if Keyboard is Visible
         KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
@@ -44,9 +49,8 @@ public class Notes extends AppCompatActivity {
                 }
             }
         });
+    }//End of Initial Class
 
-
-    }
     public void goToNewNote(View view) {
         Intent nt = new Intent(getApplicationContext(),NewNote.class);
         startActivity(nt);
@@ -55,4 +59,19 @@ public class Notes extends AppCompatActivity {
     public void backToHome(View view) {
         finish();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteAdapter.notifyDataSetChanged();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(noteAdapter!=null){
+            noteAdapter.notifyDataSetChanged();
+        }
+    }
+
+
 }

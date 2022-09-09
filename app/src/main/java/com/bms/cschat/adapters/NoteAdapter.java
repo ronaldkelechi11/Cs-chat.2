@@ -28,6 +28,14 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         Note note = getItem(position);
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_notes_item,parent,false);
 
+        TextView title;
+        TextView date;
+
+        title = convertView.findViewById(R.id.noteItemTitle);
+        date = convertView.findViewById(R.id.noteItemDate);
+
+        title.setText(note.getTitle());
+        date.setText(note.getDate());
 
         return convertView;
     }

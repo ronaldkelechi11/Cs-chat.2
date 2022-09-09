@@ -25,6 +25,7 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
     private static final String ID_FIELD = "id";
     private static final String TITLE_FIELD = "title";
     private static final String DESCRIPTION_FIELD = "description";
+    private static final String DATE_FIELD = "date";
 
     public NotesSqliteManager(Context context) {
 
@@ -46,6 +47,7 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
                         + "(" + COUNTER + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + ID_FIELD + " INT, "
                         + TITLE_FIELD + " TEXT, "
+                        + DATE_FIELD + " TEXT, "
                         + DESCRIPTION_FIELD + " TEXT);";
 
         sqLiteDatabase.execSQL(sqlexec);
@@ -59,9 +61,11 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
     public void addNoteToDatabase(Note note) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(ID_FIELD, note.getId());
         contentValues.put(TITLE_FIELD, note.getTitle());
         contentValues.put(DESCRIPTION_FIELD, note.getDescription());
+        contentValues.put(DATE_FIELD, note.getDate());
 
         sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
     }
@@ -71,10 +75,13 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
         try (Cursor result = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null)) {
             if (result.getCount() != 0) {
                 while (result.moveToNext()) {
+
                     int id = result.getInt(1);
                     String title = result.getString(2);
                     String description = result.getString(3);
-                    Note note = new Note(id, title, description);
+                    String date = result.getString(4);
+
+                    Note note = new Note(id,title,description,date);
                     Note.noteArrayList.add(note);
                 }
             }
@@ -84,9 +91,11 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
     public void updateNoteInDB(Note note) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(ID_FIELD, note.getId());
         contentValues.put(TITLE_FIELD, note.getTitle());
         contentValues.put(DESCRIPTION_FIELD, note.getDescription());
+        contentValues.put(DATE_FIELD, note.getDate());
 
         sqLiteDatabase.update(TABLE_NAME, contentValues, ID_FIELD + " =? ", new String[]{String.valueOf(note.getId())});
     }
