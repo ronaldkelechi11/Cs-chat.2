@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bms.cschat.adapters.NoteAdapter;
 import com.bms.cschat.classes.Note;
@@ -24,7 +22,6 @@ public class Notes extends AppCompatActivity {
     EditText searchNotes;
     ListView notesListView;
     NoteAdapter noteAdapter;
-    NotesSqliteManager notesSqliteManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +34,15 @@ public class Notes extends AppCompatActivity {
         notesListView = findViewById(R.id.notesListView);
 
         //Initialization of Database object
+        NotesSqliteManager notesSqliteManager;
         notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
-        // Hahaha forgot to populate arraylist onStart
         notesSqliteManager.populateNoteArrayList();
+
+
 
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         notesListView.setAdapter(noteAdapter);
+
 
         //To hide FAB if Keyboard is Visible working perfectly
         KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
@@ -62,21 +62,7 @@ public class Notes extends AppCompatActivity {
         Intent nt = new Intent(getApplicationContext(),NewNote.class);
         startActivity(nt);
     }
-
     public void backToHome(View view) {
         finish();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        noteAdapter.notifyDataSetChanged();
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(noteAdapter!=null){
-            noteAdapter.notifyDataSetChanged();
-        }
     }
 }

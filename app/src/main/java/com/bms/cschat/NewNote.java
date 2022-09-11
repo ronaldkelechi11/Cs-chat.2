@@ -73,6 +73,7 @@ public class NewNote extends AppCompatActivity {
             titleEditText.requestFocus();
             return;
         }
+        //Not sure but I might remove this from my code later
         if(descriptiontxt.isEmpty()){
             descriptionEditText.setError("Content of note is empty");
             descriptionEditText.requestFocus();
@@ -91,7 +92,7 @@ public class NewNote extends AppCompatActivity {
             finish();
         }
         catch (Exception e){
-            Toast.makeText(getApplicationContext(), "Note could not be added successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Note was not saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

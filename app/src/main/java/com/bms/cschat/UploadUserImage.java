@@ -101,34 +101,37 @@ public class UploadUserImage extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference("Users").child(mAuth.getCurrentUser().getUid());
 
 
-        mAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //Just a reduced th code to write in the main part
-                            databaseReference.setValue(user)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()){
-                                                Intent tHome = new Intent(getApplicationContext(),HomeScreen.class);
-                                                startActivity(tHome);
-                                                Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
+        try {
+            mAuth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                //Just a reduced th code to write in the main part
+                                databaseReference.setValue(user)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()){
+                                                    Intent tHome = new Intent(getApplicationContext(),HomeScreen.class);
+                                                    startActivity(tHome);
+                                                    Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "SignUp Un-Successful", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(), "Login Un-Successful", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                    });
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Sign Up Error", Toast.LENGTH_SHORT).show();
+        }
 
-
-        //Just to text if it, passed not to sure
-        Toast.makeText(getApplicationContext(), name + " " + email, Toast.LENGTH_SHORT).show();
-    }
+    }//End of Initial Class
 
 
     public void goToMain(View view) {

@@ -35,7 +35,7 @@
             android:exported="false"
             android:parentActivityName=".Notes" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Notes"
             android:exported="false"
             android:theme="@style/Theme.Cschat.white"/>
         <activity
@@ -52,7 +52,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".Notes"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
