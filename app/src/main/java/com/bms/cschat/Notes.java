@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bms.cschat.adapters.NoteAdapter;
 import com.bms.cschat.classes.Note;
+import com.bms.cschat.managers.NotesSqliteManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
@@ -23,6 +24,7 @@ public class Notes extends AppCompatActivity {
     EditText searchNotes;
     ListView notesListView;
     NoteAdapter noteAdapter;
+    NotesSqliteManager notesSqliteManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,15 @@ public class Notes extends AppCompatActivity {
         searchNotes = findViewById(R.id.searchNoteEditText);
         notesListView = findViewById(R.id.notesListView);
 
+        //Initialization of Database object
+        notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
+        // Hahaha forgot to populate arraylist onStart
+        notesSqliteManager.populateNoteArrayList();
+
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         notesListView.setAdapter(noteAdapter);
 
-        //To hide FAB if Keyboard is Visible
+        //To hide FAB if Keyboard is Visible working perfectly
         KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
             @Override
             public void onVisibilityChanged(boolean isOpen) {
@@ -72,6 +79,4 @@ public class Notes extends AppCompatActivity {
             noteAdapter.notifyDataSetChanged();
         }
     }
-
-
 }

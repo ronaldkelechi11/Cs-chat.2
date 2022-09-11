@@ -37,7 +37,7 @@ public class NewNote extends AppCompatActivity {
 
     public void goToNotes(View view) {
         builder = new AlertDialog.Builder(NewNote.this);
-        builder.setMessage("Are you sure you want to leave ? Note might not be saved.");
+        builder.setMessage("Are you sure you want to leave? Note might not be saved.");
         builder.setCancelable(true);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -68,22 +68,30 @@ public class NewNote extends AppCompatActivity {
         String descriptiontxt = descriptionEditText.getText().toString();
         String theDate = dateFormat.format(date);
 
-        //Some Validation only for the title
         if(titletxt.isEmpty()){
-            titleEditText.setError("Field cannot be empty");
+            titleEditText.setError("Title Is required");
             titleEditText.requestFocus();
             return;
         }
+        if(descriptiontxt.isEmpty()){
+            descriptionEditText.setError("Content of note is empty");
+            descriptionEditText.requestFocus();
+            return;
+        }
+
         try{
-            NotesSqliteManager notesSqliteManager1 = new NotesSqliteManager(this);
             Note note = new Note(id,titletxt,descriptiontxt,theDate);
+            NotesSqliteManager notesSqliteManager1 = NotesSqliteManager.instanceOfDatabase(this);
+
+            //Adding the newNoteItem to the ArrayList and DB
             Note.noteArrayList.add(note);
             notesSqliteManager1.addNoteToDatabase(note);
+
             Toast.makeText(getApplicationContext(), "Note Added successfully", Toast.LENGTH_SHORT).show();
             finish();
         }
         catch (Exception e){
-            Toast.makeText(getApplicationContext(), "Note could not add successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Note could not be added successfully", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -106,6 +106,7 @@ public class UploadUserImage extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            //Just a reduced th code to write in the main part
                             databaseReference.setValue(user)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -126,14 +127,15 @@ public class UploadUserImage extends AppCompatActivity {
 
 
         //Just to text if it, passed not to sure
-        Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), name + " " + email, Toast.LENGTH_SHORT).show();
     }
 
 
     public void goToMain(View view) {
         builder = new AlertDialog.Builder(UploadUserImage.this);
         builder.setCancelable(true);
-        builder.setMessage("Are you sure you want to exit your information is not yet saved ?");
+        builder.setTitle("Error");
+        builder.setMessage("Are you sure you want to exit? Your profile creation has not been completed");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
