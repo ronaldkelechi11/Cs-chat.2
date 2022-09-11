@@ -3,8 +3,10 @@ package com.bms.cschat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,7 +45,6 @@ public class Notes extends AppCompatActivity {
         noteAdapter = new NoteAdapter(getApplicationContext(), Note.noteArrayList);
         notesListView.setAdapter(noteAdapter);
 
-
         //To hide FAB if Keyboard is Visible working perfectly
         KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
             @Override
@@ -56,6 +57,32 @@ public class Notes extends AppCompatActivity {
                 }
             }
         });
+
+
+        //Single Click to edit
+        notesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Note selectedNote = (Note) notesListView.getItemAtPosition(position);
+                Intent editNoteIntent = new Intent(getApplicationContext(), NewNote.class);
+                editNoteIntent.putExtra(Note.NOTE_EDIT_EXTRA,selectedNote.getId());
+
+                startActivity(editNoteIntent);
+            }
+        });
+
+
+        //Long click to delete
+        notesListView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(getApplicationContext(), "Note Deleted Successfully", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+
     }//End of Initial Class
 
     public void goToNewNote(View view) {

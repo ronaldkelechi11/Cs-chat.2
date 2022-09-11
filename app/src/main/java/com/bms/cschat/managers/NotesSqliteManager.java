@@ -95,12 +95,15 @@ public class NotesSqliteManager extends SQLiteOpenHelper {
         contentValues.put(DESCRIPTION_FIELD, note.getDescription());
         contentValues.put(DATE_FIELD, note.getDate());
 
-        sqLiteDatabase.update(TABLE_NAME, contentValues, ID_FIELD + " =? ", new String[]{String.valueOf(note.getId())});
+        sqLiteDatabase.update(TABLE_NAME, contentValues, ID_FIELD + " =? ", new String[]{String.valueOf(note.getId())} );
     }
 
     //Delete Note Method
     public void deleteNoteInDb(Note note){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
+        //Trying to delete the note from long click
+       sqLiteDatabase.delete(TABLE_NAME,ID_FIELD + " =? ", new String[]{String.valueOf(note.getId())} );
     }
 
 }

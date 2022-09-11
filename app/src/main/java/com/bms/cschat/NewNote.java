@@ -1,6 +1,7 @@
 package com.bms.cschat;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,7 +21,10 @@ public class NewNote extends AppCompatActivity {
     AlertDialog.Builder builder;
 
     EditText titleEditText,descriptionEditText;
-    NotesSqliteManager notesSqliteManager;
+
+    NotesSqliteManager notesSqliteManager = NotesSqliteManager.instanceOfDatabase(this);
+
+    public Note selectedNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,10 @@ public class NewNote extends AppCompatActivity {
         titleEditText = findViewById(R.id.titleNewNote);
         descriptionEditText = findViewById(R.id.descriptionNewNote);
 
-        notesSqliteManager = new NotesSqliteManager(this);
         notesSqliteManager.populateNoteArrayList();
+
+        //Once it is created it should check if the note was sent
+        checkForEditNote();
 
     }//End Of Initial Class
 
@@ -62,37 +68,52 @@ public class NewNote extends AppCompatActivity {
         String myDateFormat = "MMMM dd, yyyy hh:mm a";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myDateFormat);
 
-
-        int id = Note.noteArrayList.size();
         String titletxt = titleEditText.getText().toString();
         String descriptiontxt = descriptionEditText.getText().toString();
         String theDate = dateFormat.format(date);
 
+        //Minor Validator just for title
         if(titletxt.isEmpty()){
             titleEditText.setError("Title Is required");
             titleEditText.requestFocus();
             return;
         }
-        //Not sure but I might remove this from my code later
-        if(descriptiontxt.isEmpty()){
-            descriptionEditText.setError("Content of note is empty");
-            descriptionEditText.requestFocus();
-            return;
-        }
 
         try{
-            Note note = new Note(id,titletxt,descriptiontxt,theDate);
-            NotesSqliteManager notesSqliteManager1 = NotesSqliteManager.instanceOfDatabase(this);
+            if(selectedNote == null){
+                int id = Note.noteArrayList.size();
+                Note note = new Note(id,titletxt,descriptiontxt,theDate);
 
-            //Adding the newNoteItem to the ArrayList and DB
-            Note.noteArrayList.add(note);
-            notesSqliteManager1.addNoteToDatabase(note);
-
-            Toast.makeText(getApplicationContext(), "Note Added successfully", Toast.LENGTH_SHORT).show();
+                //Adding the newNoteItem to the ArrayList and DB
+                Note.noteArrayList.add(note);
+                notesSqliteManager.addNoteToDatabase(note);
+                Toast.makeText(getApplicationContext(), "Note Added successfully", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                //Updates the title, description and date
+                selectedNote.setTitle(titletxt);
+                selectedNote.setDescription(descriptiontxt);
+                selectedNote.setDate(theDate);
+                Toast.makeText(getApplicationContext(), "Note Updated Successfully", Toast.LENGTH_SHORT).show();
+            }
             finish();
         }
         catch (Exception e){
             Toast.makeText(getApplicationContext(), "Note was not saved", Toast.LENGTH_SHORT).show();
         }
     }
+
+    //Check onCreate to see if the note is to be edited
+    private void checkForEditNote() {
+        Intent getEditNote = getIntent();
+        int passedNoteId = getEditNote.getIntExtra(Note.NOTE_EDIT_EXTRA,-1);
+        selectedNote = Note.getNoteForId(passedNoteId);
+        if(selectedNote != null){
+            titleEditText.setText(selectedNote.getTitle());
+            descriptionEditText.setText(selectedNote.getDescription());
+        }
+    }
+
+
+
 }

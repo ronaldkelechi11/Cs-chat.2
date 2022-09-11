@@ -8,8 +8,6 @@ public class Note {
     public static String NOTE_EDIT_EXTRA = "noteEdit";
     public static ArrayList<Note> noteArrayList = new ArrayList<>();
 
-    int noteCounter = 1;
-
     int id;
     String title;
     String description;
@@ -20,6 +18,15 @@ public class Note {
         this.title = title;
         this.description = description;
         this.date = date;
+    }
+
+    public static Note getNoteForId(int passedNoteId) {
+        for(Note note: noteArrayList){
+            if(note.getId() == passedNoteId){
+                return note;
+            }
+        }
+        return null;
     }
 
 
