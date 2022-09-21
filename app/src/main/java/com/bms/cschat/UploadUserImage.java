@@ -100,6 +100,10 @@ public class UploadUserImage extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users").child(mAuth.getCurrentUser().getUid());
 
+        /*
+        TODO: Add a HOSTING SERVICE to store images or FIREBASE STORAGE to store images and then image
+            link should be added to User.Class
+        */
 
         try {
             mAuth.createUserWithEmailAndPassword(email,password)
