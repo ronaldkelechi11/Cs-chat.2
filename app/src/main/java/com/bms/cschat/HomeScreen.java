@@ -38,4 +38,9 @@ public class HomeScreen extends AppCompatActivity{
         setContentView(R.layout.activity_home_screen);
 
     }//End of Initial Class
+
+    public void goToNotes(View view) {
+        Intent i = new Intent(getApplicationContext(),Notes.class);
+        startActivity(i);
+    }
 }
