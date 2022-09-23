@@ -51,7 +51,8 @@
             app:layout_constraintTop_toBottomOf="@+id/searchNoteEditText" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/seeMore"
+            android:onClick="changeVisi"
             android:layout_width="wrap_content"
             android:paddingHorizontal="20dp"
             android:layout_height="wrap_content"
@@ -69,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/readingGroupCreate"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/components">
