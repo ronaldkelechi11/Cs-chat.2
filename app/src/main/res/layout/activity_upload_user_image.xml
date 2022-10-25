@@ -117,6 +117,7 @@
     </androidx.cardview.widget.CardView>
 
     <ProgressBar
+        android:id="@+id/progressBarUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/secondary1"

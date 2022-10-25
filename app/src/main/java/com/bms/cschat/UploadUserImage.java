@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bms.cschat.classes.User;
@@ -26,12 +27,12 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UploadUserImage extends AppCompatActivity {
     private ImageView uploadImage;
     private CardView uploadButton;
+    ProgressBar progressBar;
 
     String PASSED_NAME = "name";
     String PASSED_EMAIL = "email";
     String PASSED_NUMBER = "number";
     String PASSED_PASSWORD = "passwprd";
-
 
     private static final int PICK_IMAGE = 123;
     private Uri imagePath;
@@ -51,6 +52,7 @@ public class UploadUserImage extends AppCompatActivity {
 
         uploadImage = findViewById(R.id.uploadImage);
         uploadButton = findViewById(R.id.uploadButton);
+        progressBar = findViewById(R.id.progressBarUpload);
 
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +108,13 @@ public class UploadUserImage extends AppCompatActivity {
         */
 
         try {
+            progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                //Just a reduced th code to write in the main part
+                                //Just reduced the code to write in the main part
                                 databaseReference.setValue(user)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -125,6 +128,7 @@ public class UploadUserImage extends AppCompatActivity {
                                         });
                             }
                             else{
+                                progressBar.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "SignUp Un-Successful", Toast.LENGTH_SHORT).show();
                             }
                         }
