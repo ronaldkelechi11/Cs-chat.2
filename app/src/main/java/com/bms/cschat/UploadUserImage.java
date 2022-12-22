@@ -73,6 +73,7 @@ public class UploadUserImage extends AppCompatActivity {
             {
                 assert data != null;
                 imagePath = data.getData();
+                uploadButton.setForeground(null);
                 uploadImage.setImageURI(imagePath);
                 Toast.makeText(getApplicationContext(), "Image Added Successfully", Toast.LENGTH_SHORT).show();
                 if(imagePath != null){
